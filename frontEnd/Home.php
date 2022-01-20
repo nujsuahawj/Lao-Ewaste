@@ -33,38 +33,8 @@
 
   <header>
     <?php include 'Header.php';?>
-    <!-- slide image -->
-    <div class="page-banner home-banner mb-5">
-      <div class="slider-wrapper">
-        <div class="owl-carousel hero-carousel">
-          <div class="hero-carousel-item">
-            <img src="./assets/img/bg_image_1.jpg" alt="">
-            <div class="img-caption">
-              <div class="subhead">ລາຍລະອຽດ</div>
-              <h1 class="mb-4">ຍິນດີຕ້ອນຮັບ</h1>
-              <!-- <a href="#services" class="btn btn-outline-light">Get Started</a> -->
-            </div>
-          </div>
-          <div class="hero-carousel-item">
-            <img src="./assets/img/bg_image_2.jpg" alt="">
-            <div class="img-caption">
-              <div class="subhead">ລາຍລະອຽດ</div>
-              <h1 class="mb-4">ຈຳນວນທີ່ເກັບໄດ້ 2000 kg</h1>
-              <!-- <a href="#services" class="btn btn-outline-light">Get Started</a>
-              <a href="#services" class="btn btn-primary">See Pricing</a> -->
-            </div>
-          </div>
-          <div class="hero-carousel-item">
-            <img src="./assets/img/bg_image_3.jpg" alt="">
-            <div class="img-caption">
-              <div class="subhead">ລາຍລະອຽດ</div>
-              <h1 class="mb-4">ກິດຈະກຳຂອງພວເຮົາ</h1>
-              <!-- <a href="#services" class="btn btn-primary">Read More</a> -->
-            </div>
-          </div>
-        </div>
-      </div> <!-- .slider-wrapper -->
-    </div> <!-- .page-banner -->
+    <?php include 'Slibe.php';?>
+    
   </header>
 
   <main>
@@ -80,71 +50,70 @@
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/web_development.svg" alt="">
+                <img src="./assets/img/icons/glass.png" alt="">
               </div>
-              <h5>Web Development</h5>
+              <h5>ຈອກແກ້ວ (ຄວບແກ້ວ)</h5>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/graphics_design.svg" alt="">
+                <img src="./assets/img/icons/water-bottle.png" alt="ຕຸກນ້ຳ ປຣາສະຕິກ">
               </div>
-              <h5>Graphics Design</h5>
+              <h5>ຕຸກນ້ຳ (ປຣາສະຕິກ)</h5>
             </div>
           </div>
-
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/seo_and_marketing.svg" alt="">
+                <img src="./assets/img/icons/aluminum.png" alt="ກະປ່ອງ">
               </div>
-              <h5>SEO & Marketing</h5>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
-            <div class="text-center">
-              <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/customer_services.svg" alt="">
-              </div>
-              <h5>Customer Services</h5>
+              <h5>ກະປ່ອງ (ອາລູມີນຽມ)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/app_development.svg" alt="">
+                <img src="./assets/img/icons/paper.png" alt="ເສບເຈ້ຍ">
               </div>
-              <h5>App Development</h5>
+              <h5>ເສບເຈ້ຍ (ປື້ມ)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/ui_ux_design.svg" alt="">
+                <img src="./assets/img/icons/vitamilk.png" alt="vitamilk">
               </div>
-              <h5>UI/UX Design</h5>
+              <h5>ຄວບນົມ (vitamilk)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/product_design.svg" alt="">
+                <img src="./assets/img/icons/bage.png" alt="bage">
               </div>
-              <h5>Product Design</h5>
+              <h5>ເເກັບໃສ່ເຄື່ອງ (ເກັບເຈ້ຍ)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/data_analyst.svg" alt="">
+                <img src="./assets/img/icons/phone.png" alt="phone">
               </div>
-              <h5>Data Analyst</h5>
+              <h5>ໂທລະສັບ (telephone)</h5>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+            <div class="text-center">
+              <div class="img-fluid mb-4">
+                <img src="./assets/img/icons/cable.png" alt="cable">
+              </div>
+              <h5>ສາຍ cable (ສາຍສາກ, ສາຍໄຟ)</h5>
             </div>
           </div>
 

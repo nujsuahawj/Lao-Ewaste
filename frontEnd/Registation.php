@@ -75,13 +75,18 @@
                                                 id="exampleInputPassword" placeholder="ເບີໂທ...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="ໂຮງຮຽນ...">
+                                          <select class="form-control">
+                                            <option selected>ໂຮງຮຽນ...</option>
+                                            <option value="1">1 school name</option>
+                                            <option value="2">2 school name</option>
+                                            <option value="3">3 school name</option>
+                                          </select>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="ID 6 ໂຕທີ່ທ່ານມັກທີສຸດແລະຈື່ງ່າຍທີ່ສຸດ...">
                                         </div>
+                                        
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
                                             ບັນທຶກ
                                         </button>
