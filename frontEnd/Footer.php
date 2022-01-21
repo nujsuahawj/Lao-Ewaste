@@ -19,7 +19,7 @@
 
       <div class="row mt-4">
         <div class="col-md-6">
-          <p>Copyright 2022. This web site designed by <a href="https://www.facebook.com/nousua.sainther/">Jack Sainther</a></p>
+          <p>Copyright &copy; 2022. ເວັບໄຊນີ້ສ້າງໂດຍ <a href="https://www.facebook.com/nousua.sainther/">Mr. Jack Sainther</a></p>
         </div>
         <div class="col-md-6 text-right">
           <div class="sosmed-button">
