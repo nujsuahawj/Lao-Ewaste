@@ -53,7 +53,7 @@
                                                 id="exampleInputPassword" placeholder="ລະຫັດຜ່ານ...">
                                         </div>
                                         <hr>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="Dashboard.php" class="btn btn-primary btn-user btn-block">
                                             ເຂົ້າສູ່ລະບົບ
                                         </a>
                                     </form>
