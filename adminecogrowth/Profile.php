@@ -1,3 +1,87 @@
+<?php
+	// Initialize session
+	session_start();
+
+	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
+		header('location: Home.php');
+		exit;
+	}
+// Include config file
+include('db.php');
+// select data form tabel
+    $sid = $_SESSION['id'];
+    if($sid = !0){
+        $sql = "select * from admin where id=".$sid;
+        $result = mysqli_query($mysql_db, $sql);
+        if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        }else {
+        $errorMsg = 'Could not Find Any Record';
+        }
+    }
+
+    // update data
+    $sid = $_SESSION['id'];
+// insert data form tabel
+    $upload_dir = './img/admin/';
+    if (isset($_POST['Submit'])) {
+    $name = $_POST['name'];
+    $contact = $_POST['phone'];
+    $email = $_POST['details'];
+
+    $imgName = $_FILES['image']['name'];
+        $imgTmp = $_FILES['image']['tmp_name'];
+        $imgSize = $_FILES['image']['size'];
+
+    if(empty($name)){
+            $nerrorMsg = 'ກະລຸນາປ້ອນຊື່...';
+        }elseif(empty($contact)){
+            $errorMsg = 'ກະລຸນາປ້ອນເບີໂທ';
+        }elseif(empty($email)){
+            $errorMsg = 'ກະລຸນາປ້ອນຂໍ້ມູນ...';
+        }else{
+
+            $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+
+            $allowExt  = array('jpeg', 'jpg', 'png', 'gif');
+
+            $userPic = time().'_'.rand(1000,9999).'.'.$imgExt;
+
+            if(in_array($imgExt, $allowExt)){
+
+                if($imgSize < 5000000){
+                    move_uploaded_file($imgTmp ,$upload_dir.$userPic);
+                }else{
+                    $errorMsg = 'ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ';
+                }
+            }else{
+                $errorMsg = 'ກະລຸນາເລືອກຮູບພາບ';
+            }
+        }
+
+
+        if(!isset($errorMsg)){
+            //   $sql = "insert into admin(username, phone, detais, file)
+            //           values('".$name."', '".$contact."', '".$email."', '".$userPic."')";
+            $sql = "update admin
+                    set username = '".$name."',
+                    phone = '".$contact."',
+                    detais = '".$email."',
+                    file = '".$userPic."'
+                    where id=".$sid;
+            $result = mysqli_query($mysql_db, $sql);
+            if($result){
+                $_SESSION['message'] = 'ແກ້ໄຂຂໍ້ມູນແລ້ວ';
+                $_SESSION['message_type'] = 'success';
+                header('Location: Profile.php');
+            }else{
+                $errorMsg = 'Error '.mysqli_error($mysql_db);
+            }
+        }
+    }
+
+?>
+<!-- html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,39 +131,54 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h3 class="h3 mb-0 text-gray-800">ແກ້ໄຂ Profile</h3>
+                        <h3 class="h3 mb-0 text-gray-800">ໂຮງຮຽນ Profile</h3>
+                        <div class="d-sm-flex align-items-center justify-content-between mb-8">
+                            <?php if (isset($_SESSION['message'])) { ?>
+                                <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
+                                    <?= $_SESSION['message']?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php  } ?>
+                        </div>
                     </div>
 
                     <!-- Content Row -->
 
                     <div class="row">
                         <div class="col-md-4 border-right">
-                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="https://scontent.fvte2-2.fna.fbcdn.net/v/t39.30808-6/s600x600/269949285_642442473735194_8951946166013674743_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHY-EPgd_6S1l7cxiGncLuiygRjNJCqflnKBGM0kKp-WbVXbbD9QnMp2Yy0-zFsbBiZBbO4PwfjmPKUwmfW7sqK&_nc_ohc=eHzk0BPa2gcAX9ZD3f0&_nc_ht=scontent.fvte2-2.fna&oh=00_AT8_zfQtmQmy9qBo-dEBpYC_clGncFKymANdU4UsYM151g&oe=61F007E7" width="90"><span class="font-weight-bold">Mr. Jack Sainther</span><span class="text-black-50">nousainther@gmail.com</span><span>Laos PDR</span></div>
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                                <img id="adminlogo" width="200" class="rounded-circle mt-5" src="<?= "./img/admin/".$row['file']?>">
+                                <span class="font-weight-bold"><b>ຊື່:</b> <?php echo $row['username'] ?></span>
+                                <span class="text-black-50"><b>ເບີໂທ:</b> <?php echo $row['phone'] ?></span>
+                                <span><b>ຂໍ້ມູນ:</b> <?php echo $row['detais'] ?></span>
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <div class="p-3 py-5">
-                                <form role="form" method="POST" action="">
-                                    <div class="form-group">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    <div class="form-group<?php (!empty($errorMsg))?'has_error':'';?>">
                                         <div>
-                                            <input type="text" class="form-control input-lg" name="schoolname" placeholder="ຊື່ແລະນາມສະກຸນ...">
+                                            <input type="text" id="name" class="form-control input-lg" name="name" placeholder="ຊື່ແລະນາມສະກຸນ...">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <input type="number" class="form-control input-lg" name="details" placeholder="ເບີໂທ...">
+                                            <input type="number" id="phone" class="form-control input-lg" name="phone" placeholder="ເບີໂທ...">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <input type="details" class="form-control input-lg" name="details" placeholder="ລາຍລະອຽດ">
+                                            <input type="text" id="detials" class="form-control input-lg" name="details" placeholder="ລາຍລະອຽດ..">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <div>
-                                            <input type="file" class="form-control form-control-user" id="exampleInputPassword" placeholder="logo">
+                                            <input type="file" id="logo" accept="image/png, image/gif, image/jpeg" name="image"  class="form-control form-control-user" id="exampleInputPassword" placeholder="logo">
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">ບັນທຶກ</button>
+                                    <button type="submit" name="Submit" class="btn btn-primary">ບັນທຶກ</button>
                                     <button type="reset" class="btn btn-secondary">ຍົກເລີກ</button>
                                 </form>
                             </div>
@@ -130,6 +229,8 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- fomr -->
+    <script src="js/form.js"></script>
 
 </body>
 

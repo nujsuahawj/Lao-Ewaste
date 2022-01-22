@@ -1,5 +1,3 @@
-<!-- php -->
-
 <?php
   // Initialize sessions
   session_start();
@@ -11,7 +9,7 @@
   }
 
   // Include config file
-  require_once "../adminecogrowth/db.php";
+  require_once "db.php";
 
   // Define variables and initialize with empty values
   $username = $password = '';
@@ -22,14 +20,14 @@
 
     // Check if username is empty
     if(empty(trim($_POST['username']))){
-      $username_err = 'ກະລຸນາປ້ອນຊື້.';
+      $username_err = 'Please enter username.';
     } else{
       $username = trim($_POST['username']);
     }
 
     // Check if password is empty
     if(empty(trim($_POST['password']))){
-      $password_err = 'ກະລຸນາປ້ອນລະຫັດຜ່ານ.';
+      $password_err = 'Please enter your password.';
     } else{
       $password = trim($_POST['password']);
     }
@@ -68,19 +66,20 @@
                 $_SESSION['loggedin'] = true;
                 $_SESSION['id'] = $id;
                 $_SESSION['username'] = $username;
+                $_SESSION['loginms'] = "logined";
 
                 // Redirect to user to page
                 header('location: Dashboard.php');
               } else {
                 // Display an error for passord mismatch
-                $password_err = 'ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ';
+                $password_err = 'Invalid password';
               }
             }
           } else {
-            $username_err = "ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ.";
+            $username_err = "Username does not exists.";
           }
         } else {
-          echo "ອ້າວ! ຂໍ້ມູນບ່າງຢ່າງຜິດພາບ ກະລຸນາປ້ອນຂໍ້ມູນອີກຄັ້ງ";
+          echo "Oops! Something went wrong please try again";
         }
         // Close statement
         $stmt->close();
@@ -121,6 +120,7 @@
 <body class="bg-gradient-primary">
 
     <div class="container">
+      <section>
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -165,7 +165,7 @@
             </div>
 
         </div>
-
+      </section>
     </div>
 
     <!-- Bootstrap core JavaScript-->
