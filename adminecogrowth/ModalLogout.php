@@ -9,7 +9,7 @@
         <div class="modal-body">ວ່າທ່ານຕ້ອງການອອກຈາກລະບົບ</div>
         <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">ຍົກເລີກ</button>
-            <a class="btn btn-primary" href="Home.php">ຕົກລົງ</a>
+            <a class="btn btn-primary" href="../adminecogrowth/Logout.php">ຕົກລົງ</a>
         </div>
     </div>
 </div>
