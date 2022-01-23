@@ -5,7 +5,7 @@
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
 		header('location: Home.php');
 		exit;
-	}
+	}else{}
     // Include config file
     include('db.php');
     // insert data form tabel
@@ -55,7 +55,7 @@
             if($result){
                 $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
                 $_SESSION['message_type'] = 'success';
-                header('Location: School.php');
+                // header('Location: School.php');
             }else{
                 $errorMsg = 'Error '.mysqli_error($mysql_db);
             }
@@ -76,10 +76,10 @@
 
         if(!($fname)){
             $nerrorMsg = 'inputnschoolsname';
-            header("Location:School.php");
+            // header("Location:School.php");
         }elseif(!($lname)){
             $errorMsg = 'inputdetials';
-            header("Location:School.php");
+            // header("Location:School.php");
         }else{
 
             $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
@@ -94,11 +94,11 @@
                     move_uploaded_file($imgTmp ,$upload_dir.$userPic);
                 }else{
                     $errorMsg = 'ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ';
-                    header("Location:School.php");
+                    // header("Location:School.php");
                 }
             }else{
                 $errorMsg = 'ກະລຸນາເລືອກຮູບພາບ';
-                header("Location:School.php");
+                // header("Location:School.php");
             }
         }
 
@@ -110,7 +110,7 @@
             {
                 $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
                 $_SESSION['message_type'] = 'success';
-                header('Location: School.php');
+                // header('Location: School.php');
             }
             else
             {
@@ -132,7 +132,7 @@
     {
       $_SESSION['message'] = 'ແກ້ໄຂຂໍ້ມູນແລ້ວ';
       $_SESSION['message_type'] = 'success';
-      header('Location: School.php');
+    //   header('Location: School.php');
     }
     else
     {
@@ -202,7 +202,7 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                            <?php  } ?>
+                            <?php unset($_SESSION); } ?>
                         </div>
                         <p class="mb-4">ເພີ່ມ ແລະ ແກ້ໄຂຂໍ້ມູນຕ່າງໆຂອງໂຮງຮຽນ</p>
 
