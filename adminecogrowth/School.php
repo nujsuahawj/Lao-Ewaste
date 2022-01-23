@@ -18,10 +18,10 @@
         $imgTmp = $_FILES['image']['tmp_name'];
         $imgSize = $_FILES['image']['size'];
 
-        if(empty($schoolname)){
-            $nerrorMsg = 'ກະລຸນາປ້ອນຊື່...';
-        }elseif(empty($detials)){
-            $errorMsg = 'ກະລຸນາປ້ອນເບີໂທ';
+        if(!($schoolname)){
+            $nerrorMsg = 'inputnschoolsname';
+        }elseif(!($detials)){
+            $errorMsg = 'inputdetials';
         }else{
 
             $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
@@ -60,7 +60,86 @@
                 $errorMsg = 'Error '.mysqli_error($mysql_db);
             }
         }
+    }
+// up dated data
+
+    if(isset($_POST['updatedata']))
+    {   
+        $id = $_POST['update_id'];
+        
+        $fname = $_POST['schoolname'];
+        $lname = $_POST['details'];
+        
+        $imgName = $_FILES['image']['name'];
+        $imgTmp = $_FILES['image']['tmp_name'];
+        $imgSize = $_FILES['image']['size'];
+
+        if(!($fname)){
+            $nerrorMsg = 'inputnschoolsname';
+            header("Location:School.php");
+        }elseif(!($lname)){
+            $errorMsg = 'inputdetials';
+            header("Location:School.php");
+        }else{
+
+            $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+
+            $allowExt  = array('jpeg', 'jpg', 'png', 'gif');
+
+            $userPic = time().'_'.rand(1000,9999).'.'.$imgExt;
+
+            if(in_array($imgExt, $allowExt)){
+
+                if($imgSize < 5000000){
+                    move_uploaded_file($imgTmp ,$upload_dir.$userPic);
+                }else{
+                    $errorMsg = 'ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ';
+                    header("Location:School.php");
+                }
+            }else{
+                $errorMsg = 'ກະລຸນາເລືອກຮູບພາບ';
+                header("Location:School.php");
+            }
+        }
+
+        if(!isset($errorMsg)){
+            $query = "UPDATE schools SET schoolname='$fname', detials='$lname', file='$userPic' WHERE id='$id'  ";
+            $query_run = mysqli_query($mysql_db, $query);
+
+            if($query_run)
+            {
+                $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
+                $_SESSION['message_type'] = 'success';
+                header('Location: School.php');
+            }
+            else
+            {
+                $errorMsg = 'Error '.mysqli_error($mysql_db);
+            }
+      }
+
+        
+    }
+    // deleted schools
+    if(isset($_POST['deletedata']))
+{
+    $id = $_POST['delete_id'];
+
+    $query = "DELETE FROM schools WHERE id='$id'";
+    $query_run = mysqli_query($mysql_db, $query);
+
+    if($query_run)
+    {
+      $_SESSION['message'] = 'ແກ້ໄຂຂໍ້ມູນແລ້ວ';
+      $_SESSION['message_type'] = 'success';
+      header('Location: School.php');
+    }
+    else
+    {
+      $errorMsg = 'Error '.mysqli_error($mysql_db);
+    }
 }
+    
 ?>
 <!-- html -->
 <!DOCTYPE html>
@@ -134,12 +213,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" id="example" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>ລດ</th>
                                                 <th>ຊື່ໂຮງຮຽນ</th>
-                                                <th>ສະຖານທີແລະລາຍລະອຽດ</th>
+                                                <th>ລາຍລະອຽດ</th>
                                                 <th>ຮູບພາບ</th>
                                                 <th>ສະຖານະ</th>
                                             </tr>
@@ -152,14 +231,15 @@
                                                 $st =1;
                                                 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                                 <tr>
+                                                    <td style="display: none;"><?php echo $row['id']; ?></td>
                                                     <td width="3"><?php echo $st++; ?></td>
                                                     <td><?php echo $row['schoolname']; ?></td>
                                                     <td><?php echo $row['detials']; ?></td>
                                                     <td><img width="30px" height="30px" src="<?= "./img/school/".$row['file']?>" alt=""></td>
                                                     <td>
-                                                    <!-- https://www.fundaofwebit.com/php-solutions/php-crud-using-bootstrap-model-in-php -->
-                                                        <a href="" data-toggle="modal" data-target="#schoolediteModal" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
-                                                        <a href="deletedSchools.php?id=<?php echo $row['id']?>" class="btn btn-primary btn-sm" onclick="return confirm('ທ່ານແນ່ໃຈວ່າຕ້ອງການລົບຂໍ້ມູນນີ້ບໍ?');"><i class="fas fa-trash-restore"></i></a>
+                                                        <a class="btn btn-primary btn-sm editbtn"><i class="fas fa-edit"></i></a>
+                                                        &nbsp;
+                                                        <a class="btn btn-primary btn-sm deletebtn" ><i class="fas fa-trash-restore"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php } ?>
@@ -236,27 +316,7 @@
         </div>
 
         <!-- school deted modal -->
-        <div class="modal fade" id="schoolediteModal">
-            <?php 
-                require_once('db.php');
-                $schoolname_e = '';
-                $detials_e = '';
-                $file_e = '';
-
-                if  (isset($_GET['id'])) {
-                    $id = $_GET['id'];
-                    $query = "SELECT * FROM schools WHERE id=$id";
-                    $result = mysqli_query($mysql_db, $query);
-                    if (mysqli_num_rows($result) == 1) {
-                      $row = mysqli_fetch_array($result);
-                      
-                        $schoolname_e = $row['schoolname'];
-                        $detials_e = $row['detials'];
-                        $file_e = $row['file'];
-                     
-                    }
-                }
-            ?>
+        <div class="modal fade" id="editmodal">
             <!-- xl sm -->
             <div class="modal-dialog modal-lg"> 
                 <div class="modal-content">
@@ -272,24 +332,59 @@
                         <form role="form" method="POST" action="" enctype="multipart/form-data">
                             <div class="form-group">
                                 <div>
-                                    <input type="text" value="<?php echo $schoolname_e; ?>" class="form-control input-lg" name="schoolname" placeholder="ຊື່ໂຮງຮຽນ...">
+                                    <input type="hidden" name="update_id" id="update_id">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <input type="text" class="form-control input-lg" name="details" placeholder="ສະຖານທີ່ ແລະ ລາຍລະອຽງຕ່າງໆ...">
+                                    <input type="text" id="schoolname" class="form-control input-lg" name="schoolname" placeholder="ຊື່ໂຮງຮຽນ...">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control input-lg" name="image" placeholder="ຮູບພາບ">
+                                    <input type="text" id="detials" class="form-control input-lg" name="details" placeholder="ສະຖານທີ່ ແລະ ລາຍລະອຽງຕ່າງໆ...">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <input type="file" name="image" accept="image/png, image/gif, image/jpeg" class="form-control input-lg" name="image" placeholder="ຮູບພາບ">
                                 </div>
                             </div><br> <hr>
-                            <button type="submit" name="Submit" class="btn btn-primary">ບັນທຶກ</button>
+                            <button type="submit" name="updatedata" class="btn btn-primary">ບັນທຶກ</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
                         </form>
                     </div>
                     
+                </div>
+            </div>
+        </div>
+        <!-- deleted modal -->
+        <!-- DELETE POP UP FORM (Bootstrap MODAL) -->
+        <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"> ທ່ານແນ່ໃຈບໍ່! </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <form action="" method="POST">
+
+                        <div class="modal-body">
+
+                            <input type="hidden" name="delete_id" id="delete_id">
+
+                            <div class="modal-body">ວ່າທ່ານຕ້ອງການລົບຂໍ້ມູນີ້?</div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"> ຍົກເລີກ </button>
+                            <button type="submit" name="deletedata" class="btn btn-primary"> ຕົກລົງ </button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -310,6 +405,51 @@
 
         <!-- Page level custom scripts -->
         <script src="js/demo/datatables-demo.js"></script>
+
+        <!-- delete funtions -->
+        <script>
+            $(document).ready(function () {
+
+                $('.deletebtn').on('click', function () {
+
+                    $('#deletemodal').modal('show');
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function () {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#delete_id').val(data[0]);
+
+                });
+            });
+        </script>
+        <!-- edete data -->
+        <script>
+            $(document).ready(function () {
+
+                $('.editbtn').on('click', function () {
+
+                    $('#editmodal').modal('show');
+
+                    $tr = $(this).closest('tr');
+
+                    var data = $tr.children("td").map(function () {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    $('#update_id').val(data[0]);
+                    $('#schoolname').val(data[2]);
+                    $('#detials').val(data[3]);
+                });
+            });
+        </script>
+        
 
     </body>
 
