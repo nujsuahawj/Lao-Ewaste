@@ -5,7 +5,7 @@
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
 		header('location: Home.php');
 		exit;
-	}else{}
+	}
     // Include config file
     include('db.php');
     // insert data form tabel
@@ -19,7 +19,7 @@
         $imgSize = $_FILES['image']['size'];
 
         if(!($schoolname)){
-            $nerrorMsg = 'inputnschoolsname';
+            $errorMsg = 'inputnschoolsname';
         }elseif(!($detials)){
             $errorMsg = 'inputdetials';
         }else{
@@ -45,12 +45,6 @@
         if(!isset($errorMsg)){
               $sql = "insert into schools(schoolname, detials, file)
                       values('".$schoolname."', '".$detials."', '".$userPic."')";
-            // $sql = "update admin
-            //         set username = '".$name."',
-            //         phone = '".$contact."',
-            //         detais = '".$email."',
-            //         file = '".$userPic."'
-            //         where id=".$sid;
             $result = mysqli_query($mysql_db, $sql);
             if($result){
                 $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
@@ -108,7 +102,7 @@
 
             if($query_run)
             {
-                $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
+                $_SESSION['message'] = 'ອັບແດບຂໍ້ມູນແລ້ວ';
                 $_SESSION['message_type'] = 'success';
                 // header('Location: School.php');
             }
@@ -130,7 +124,7 @@
 
     if($query_run)
     {
-      $_SESSION['message'] = 'ແກ້ໄຂຂໍ້ມູນແລ້ວ';
+      $_SESSION['message'] = 'ລົບຂໍ້ມູນແລ້ວ';
       $_SESSION['message_type'] = 'success';
     //   header('Location: School.php');
     }
@@ -202,7 +196,7 @@
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                            <?php unset($_SESSION); } ?>
+                            <?php unset($_SESSION['message']); } ?>
                         </div>
                         <p class="mb-4">ເພີ່ມ ແລະ ແກ້ໄຂຂໍ້ມູນຕ່າງໆຂອງໂຮງຮຽນ</p>
 
@@ -305,9 +299,11 @@
                                 <div>
                                     <input type="file" accept="image/png, image/gif, image/jpeg" class="form-control input-lg" name="image" placeholder="ຮູບພາບ">
                                 </div>
-                            </div><br> <hr>
-                            <button type="submit" name="Submit" class="btn btn-primary">ບັນທຶກ</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" name="Submit" class="btn btn-primary">ບັນທຶກ</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
+                            </div>    
                         </form>
                     </div>
                     
