@@ -38,7 +38,7 @@ if(isset($_POST['start'])){
 		//Query ข้อมูลที่จะแสดงใน DataTable
 		$sql = "SELECT * FROM students $searchValueResult LIMIT $start , $length";
 		$result = mysqli_query($conn, $sql);
-		$p = 10;
+		$g = 'g';
 		
 		$data = array();
 
@@ -48,10 +48,10 @@ if(isset($_POST['start'])){
 
 			    $data[] = array(
 					'name'=> $row['name'],
-					'phone'=> $row['phone'],
 					'schoolname'=> $row['schoolname'],
-                    'poit'=> $row['poit'] * $p,
-                    'sid'=> $row['sid'],
+                    'poit'=> $row['poit']. $g,
+                    'detials'=> $row['detials'],
+                    'updated'=> $row['created_at'],
 				);
 		  }
 		}

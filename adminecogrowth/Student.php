@@ -13,20 +13,30 @@
             $phone = $_POST['numberphone'];
             $schoolname = $_POST['schoolname'];
             $sid = $_POST['sid'];
+            $poit = 0;
+            $detials = 'ບໍ່ມີ';
     
             if(!($name)){
                 $errorMsg = 'inputname';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($phone)){
                 $errorMsg = 'inputphone';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($schoolname)){
                 $errorMsg = 'inputschoolname';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($sid)){
                 $errorMsg = 'inputsid';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
     
             if(!isset($errorMsg)){
-                  $sql = "insert into students(name, phone, schoolname, sid)
-                          values('".$name."', '".$phone."', '".$schoolname."', '".$sid."')";
+                  $sql = "insert into students(name, phone, schoolname, sid, poit, detials)
+                          values('".$name."', '".$phone."', '".$schoolname."', '".$sid."', '".$poit."', '".$detials."')";
                 $result = mysqli_query($mysql_db, $sql);
                 if($result){
                     $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
@@ -43,6 +53,8 @@
     
             if(!($studentid)){
                 $errorMsg = 'inputstudentid';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
     
             if(!isset($errorMsg)){
@@ -70,12 +82,20 @@
     
             if(!($name)){
                 $errorMsg = 'inputname';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($phone)){
                 $errorMsg = 'inputphone';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($schoolname)){
                 $errorMsg = 'inputschoolname';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }elseif(!($sid)){
                 $errorMsg = 'inputsid';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
     
             if(!isset($errorMsg)){

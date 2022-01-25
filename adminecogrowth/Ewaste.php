@@ -1,3 +1,61 @@
+<?php 
+    session_start();
+
+	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
+		header('location: Home.php');
+		exit;
+	}
+    // Include config file
+    include('db.php');
+
+       // edited
+       if (isset($_POST['edited'])) {
+        $name = $_POST['name'];
+        $schoolname = $_POST['schoolname'];
+        $poit = $_POST['poit'];
+        $detials = $_POST['detials'];
+        $create = $_POST['create'];
+
+        if(!($name)){
+            $errorMsg = 'inputname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($poit)){
+            $errorMsg = 'inputphone';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($schoolname)){
+            $errorMsg = 'inputschoolname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($detials)){
+            $errorMsg = 'inputsid';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($create)){
+            $errorMsg = 'inputsid';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }
+
+        if(!isset($errorMsg)){
+            $query = "UPDATE students SET schoolname='$schoolname', poit='$poit', detials='$detials', created_at='$create' WHERE id='$name'  ";
+            $query_run = mysqli_query($mysql_db, $query);
+
+            if($query_run)
+            {
+                $_SESSION['message'] = 'ອັບແດບຂໍ້ມູນແລ້ວ';
+                $_SESSION['message_type'] = 'success';
+                // header('Location: School.php');
+            }
+            else
+            {
+                $errorMsg = 'Error '.mysqli_error($mysql_db);
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +110,17 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">ຂີ້ເຫຍື້ອ</h1>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                            <h3 class="h3 mb-0 text-gray-800">ຂີ້ເຫຍື້ອ</h3>
+                            <?php if (isset($_SESSION['message'])) { ?>
+                                    <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
+                                        <?= $_SESSION['message']?>
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                            <?php unset($_SESSION['message']); } ?>
+                    </div>
                     <p class="mb-4">ເພີ່ມ ແລະ ແກ້ໄຂຂໍ້ມູນຕ່າງໆ</p>
 
                     <!-- DataTales Example -->
@@ -62,53 +130,16 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ລດ</th>
                                             <th>ຊື່ນັກຮຽນ</th>
                                             <th>ຊື່ໂຮງຮຽນ</th>
-                                            <th>ຈຳນວນ kg</th>
+                                            <th>ຈຳນວນ g</th>
                                             <th>ລາຍລະອຽດ</th>
-                                            <th>ວັນທີ່ສຸດທ້າຍທີມາຖິ້ມ</th>
+                                            <th>ວັນທີ່ມາຖິ້ມ</th>
                                         </tr>
                                     </thead>
-                                    <!-- <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot> -->
-                                    <tbody>
-                                        <tr>
-                                            <td width="3">1</td>
-                                            <td>Mr jack</td>
-                                            <td>ນາແລ</td>
-                                            <th>10 kg</th>
-                                            <td>ແມ່ນແລ້ວ</td>
-                                            <td>01/01/2022 </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="3">2</td>
-                                            <td>Mr jack</td>
-                                            <td>ນາແລ</td>
-                                            <th>10 kg</th>
-                                            <td>ແມ່ນແລ້ວ</td>
-                                            <td>01/01/2022 </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="3">3</td>
-                                            <td>Mr jack</td>
-                                            <td>ນາແລ</td>
-                                            <th>10 kg</th>
-                                            <td>ແມ່ນແລ້ວ</td>
-                                            <td>01/01/2022 </td>
-                                        </tr>
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -155,51 +186,55 @@
                 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <form role="form" method="POST" action="">
+                    <form role="form" method="POST" action="" enctype="multipart/form-data">
                         <div class="form-group">
                             <div>
-                                <select class="form-control" id="single" style="width:100%">
-                                    <option >ຊອກຫາ ຊື່ນັກຮຽນ...</option>
-                                    <option value="Am">b</option>
-                                    <option value="An">c</option>
-                                    <option value="Ak">dm</option>
+                                <select class="form-control" name="name" id="single" style="width:100%">
+                                    <option selected>ຊອກຫາ ຊື່ນັກຮຽນ...</option>
+                                    <?php 
+                                    $query = "SELECT * FROM students";
+                                    $result_tasks = mysqli_query($mysql_db, $query); 
+                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                            <select class="form-control ">
+                            <select class="form-control" name="schoolname">
                                     <option selected>ໂຮງຮຽນ...</option>
-                                    <option value="1">school 1</option>
-                                    <option value="2"> school 2</option>
-                                    <option value="3"> school 3</option>
+                                    <?php 
+                                    $query = "SELECT * FROM schools";
+                                    $result_tasks = mysqli_query($mysql_db, $query); 
+                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['schoolname']; ?></option>
+                                    <?php } ?>
                             </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="number" class="form-control form-control-user" id="exampleInputPassword" placeholder="ຈຳນວນ...">
+                                <input type="number" class="form-control form-control-user" name="poit" placeholder="ຈຳນວນ g...">
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="text" class="form-control form-control-user" id="exampleInputPassword" placeholder="ລາຍລະອຽດ...">
+                                <input type="text" class="form-control form-control-user" name="detials" placeholder="ລາຍລະອຽດ...">
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="datetime-local" class="form-control form-control-user" id="exampleInputPassword" placeholder="ເວລາ">
+                                <input type="datetime-local" class="form-control form-control-user" name="create" placeholder="ລາຍລະອຽດ...">
                             </div>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="submit" name="edited" class="btn btn-primary">ບັນທຶກ</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
                         </div>
                     </form>
                 </div>
-                
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">ບັນທຶກ</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
-                </div>
-                
             </div>
         </div>
     </div>
@@ -229,6 +264,27 @@
           allowClear: true
       });
     </script>
+
+    <!-- select datatable -->
+    <script>
+			$(document).ready(function() {
+				
+				//คำสั่ง Javascript สำหรับเรียกใช้งาน Datatable
+				$('#example').DataTable( {
+					"processing": true,
+					"serverSide": true,
+					'serverMethod': 'post',
+					"ajax": "dbEwaste.php",
+					'columns': [
+                            { data: 'name' },
+                            { data: 'schoolname' },
+                            { data: 'poit' },
+                            { data: 'detials' },
+                            { data: 'updated' },
+						],
+				} );
+			} );
+	</script>
 
 </body>
 

@@ -36,9 +36,9 @@ if(isset($_POST['start'])){
 		$totalRecords = $records['total'];
 
 		//Query ข้อมูลที่จะแสดงใน DataTable
-		$sql = "SELECT * FROM students $searchValueResult LIMIT $start , $length";
+		$sql = "SELECT * FROM transictions $searchValueResult LIMIT $start , $length";
 		$result = mysqli_query($conn, $sql);
-		$p = 10;
+		$g = 'g';
 		
 		$data = array();
 
@@ -47,11 +47,11 @@ if(isset($_POST['start'])){
 		  while($row = mysqli_fetch_assoc($result)) {
 
 			    $data[] = array(
-					'name'=> $row['name'],
-					'phone'=> $row['phone'],
+					'studentname'=> $row['studentname'],
 					'schoolname'=> $row['schoolname'],
-                    'poit'=> $row['poit'] * $p,
-                    'sid'=> $row['sid'],
+                    'siction'=> $row['siction']. $g,
+                    'detials'=> $row['detials'],
+                    'updated'=> $row['created_at'],
 				);
 		  }
 		}

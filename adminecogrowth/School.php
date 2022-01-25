@@ -20,7 +20,11 @@
 
         if(!($schoolname)){
             $errorMsg = 'inputnschoolsname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
         }elseif(!($detials)){
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
             $errorMsg = 'inputdetials';
         }else{
 
@@ -36,9 +40,13 @@
                     move_uploaded_file($imgTmp ,$upload_dir.$userPic);
                 }else{
                     $errorMsg = 'ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ';
+                    $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                    $_SESSION['message_type'] = 'danger';
                 }
             }else{
                 $errorMsg = 'ກະລຸນາເລືອກຮູບພາບ';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
         }
 

@@ -24,7 +24,7 @@ include('db.php');
     $sid = $_SESSION['id'];
 // insert data form tabel
     $upload_dir = './img/admin/';
-    if (isset($_POST['Submit'])) {
+    if (isset($_POST['add'])) {
     $name = $_POST['name'];
     $contact = $_POST['phone'];
     $email = $_POST['details'];
@@ -33,12 +33,18 @@ include('db.php');
         $imgTmp = $_FILES['image']['tmp_name'];
         $imgSize = $_FILES['image']['size'];
 
-    if(empty($name)){
-            $nerrorMsg = 'ກະລຸນາປ້ອນຊື່...';
-        }elseif(empty($contact)){
-            $errorMsg = 'ກະລຸນາປ້ອນເບີໂທ';
-        }elseif(empty($email)){
-            $errorMsg = 'ກະລຸນາປ້ອນຂໍ້ມູນ...';
+    if(!($name)){
+            $errorMsg = 'inputname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($contact)){
+            $errorMsg = 'inputcontact';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($email)){
+            $errorMsg = 'email';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
         }else{
 
             $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
@@ -53,16 +59,18 @@ include('db.php');
                     move_uploaded_file($imgTmp ,$upload_dir.$userPic);
                 }else{
                     $errorMsg = 'ຮູບມີຂະໜາດໃຫຍ່ເກີນໄປ';
+                    $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                    $_SESSION['message_type'] = 'danger';
                 }
             }else{
                 $errorMsg = 'ກະລຸນາເລືອກຮູບພາບ';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
         }
 
 
         if(!isset($errorMsg)){
-            //   $sql = "insert into admin(username, phone, detais, file)
-            //           values('".$name."', '".$contact."', '".$email."', '".$userPic."')";
             $sql = "update admin
                     set username = '".$name."',
                     phone = '".$contact."',
@@ -140,7 +148,7 @@ include('db.php');
                                     <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                            <?php } ?>
+                            <?php unset($_SESSION['message']); }?>
                         </div>
                     </div>
 
@@ -158,7 +166,7 @@ include('db.php');
                         <div class="col-md-8">
                             <div class="p-3 py-5">
                                 <form method="POST" action="" enctype="multipart/form-data">
-                                    <div class="form-group<?php (!empty($errorMsg))?'has_error':'';?>">
+                                    <div class="form-group">
                                         <div>
                                             <input type="text" id="name" class="form-control input-lg" name="name" placeholder="ຊື່ແລະນາມສະກຸນ...">
                                         </div>
@@ -178,7 +186,7 @@ include('db.php');
                                             <input type="file" id="logo" accept="image/png, image/gif, image/jpeg" name="image"  class="form-control form-control-user" id="exampleInputPassword" placeholder="logo">
                                         </div>
                                     </div>
-                                    <button type="submit" name="Submit" class="btn btn-primary">ບັນທຶກ</button>
+                                    <button type="submit" name="add" class="btn btn-primary">ບັນທຶກ</button>
                                     <button type="reset" class="btn btn-secondary">ຍົກເລີກ</button>
                                 </form>
                             </div>
