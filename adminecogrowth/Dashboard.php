@@ -68,10 +68,17 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
+                                    <?php 
+                                        require_once('db.php');
+                                        $result4 = mysqli_query($mysql_db, "SELECT SUM(poit) AS value_sum FROM students;");
+                                        $row = mysqli_fetch_array($result4);
+                                        $count4 = $row['value_sum'];
+                                        $kg = 1000;
+                                        $pit = $count4 / $kg ?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 ຈຳນວນຂີ້ເຫຍື້ອ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">40,000 kg</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $pit; ?> kg</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -86,10 +93,15 @@
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
+                                    <?php 
+                                        require_once('db.php');
+                                        $result1 = mysqli_query($mysql_db, "SELECT COUNT(*) AS `count` FROM `schools`");
+                                        $row = mysqli_fetch_array($result1);
+                                        $count1 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 ຈຳນວນໂຮງຮຽນ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">21 ໂຮງຮຽນ</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count1; ?> ໂຮງຮຽນ</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -104,10 +116,15 @@
                             <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
+                                    <?php 
+                                        require_once('db.php');
+                                        $result2 = mysqli_query($mysql_db, "SELECT COUNT(*) AS `count` FROM `students`");
+                                        $row = mysqli_fetch_array($result2);
+                                        $count2 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 ຈຳນວນນັກຮຽນ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18 000 000 ຄົນ</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count2; ?> ຄົນ</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -122,10 +139,15 @@
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
+                                    <?php 
+                                        require_once('db.php');
+                                        $result3 = mysqli_query($mysql_db, "SELECT COUNT(*) AS `count` FROM `blos`");
+                                        $row = mysqli_fetch_array($result3);
+                                        $count3 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                                 ຈຳນວນບົດຄວນ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">15 ບົດຄວນ</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count3; ?> ບົດຄວນ</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -151,31 +173,31 @@
                                     <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
                                             class="float-right">20%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
                                             class="float-right">40%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
                                             class="float-right">60%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
                                             class="float-right">80%</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%"
                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
                                             class="float-right">100%</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>

@@ -8,17 +8,6 @@
 	}
 // Include config file
 include('db.php');
-// select data form tabel
-    $sid = $_SESSION['id'];
-    if($sid = !0){
-        $sql = "select * from admin where id=".$sid;
-        $result = mysqli_query($mysql_db, $sql);
-        if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        }else {
-        $errorMsg = 'Could not Find Any Record';
-        }
-    }
 
     // update data
     $sid = $_SESSION['id'];
@@ -157,10 +146,16 @@ include('db.php');
                     <div class="row">
                         <div class="col-md-4 border-right">
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                                <img id="adminlogo" width="200" class="rounded-circle mt-5" src="<?= "./img/admin/".$row['file']?>">
-                                <span class="font-weight-bold"><b>ຊື່:</b> <?php echo $row['username'] ?></span>
-                                <span class="text-black-50"><b>ເບີໂທ:</b> <?php echo $row['phone'] ?></span>
-                                <span><b>ຂໍ້ມູນ:</b> <?php echo $row['detais'] ?></span>
+                            <?php 
+                                require_once('db.php');
+                                $query = "SELECT * FROM admin";
+                                $result_tasks = mysqli_query($mysql_db, $query); 
+                                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                                    <img id="adminlogo" width="200" class="rounded-circle mt-5" src="<?= "./img/admin/".$row['file']?>">
+                                    <span class="font-weight-bold"><b>ຊື່:</b> <?php echo $row['username'] ?></span>
+                                    <span class="text-black-50"><b>ເບີໂທ:</b> <?php echo $row['phone'] ?></span>
+                                    <span><b>ຂໍ້ມູນ:</b> <?php echo $row['detais'] ?></span>
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="col-md-8">

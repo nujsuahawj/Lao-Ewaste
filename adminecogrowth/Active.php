@@ -13,7 +13,7 @@
         $studentname = $_POST['studentname'];
         $schoolname = $_POST['schoolname'];
         $siction = $_POST['siction'];
-        $detials = $_POST['detials'];
+        $detials = $_SESSION['username'];
 
         if(!($studentname)){
             $errorMsg = 'inputname';
@@ -132,7 +132,7 @@
                                             <th>ຊື່ນັກຮຽນ</th>
                                             <th>ຊື່ໂຮງຮຽນ</th>
                                             <th>ແລກຫຍັງ</th>
-                                            <th>ລາຍລະອຽດ</th>
+                                            <th>ເຄືອນໄຫວໂດຍ</th>
                                             <th>ເວລາ</th>
                                         </tr>
                                     </thead>
@@ -188,10 +188,10 @@
                                 <select class="form-control" name="studentname" id="single" style="width:100%">
                                     <option >ນັກຮຽນ...</option>
                                     <?php 
-                                    $query = "SELECT * FROM students";
-                                    $result_tasks = mysqli_query($mysql_db, $query); 
-                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <option value="<?php echo $row['schoolname']; ?>"><?php echo $row['name']; ?></option>
+                                        $query = "SELECT * FROM students";
+                                        $result_tasks = mysqli_query($mysql_db, $query); 
+                                        while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                                            <option value="<?php echo $row['schoolname']; ?>"><?php echo $row['name']; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -217,11 +217,6 @@
                                     <option value="ກາເເຟ">ກາເເຟ</option>
                                     <option value="ນໍ້ານົມ">ນໍ້ານົມ</option>
                                 </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="text" class="form-control form-control-user" name="detials" placeholder="ລາຍລະອຽດ...">
                             </div>
                         </div>
                         <!-- Modal footer -->

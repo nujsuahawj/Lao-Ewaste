@@ -17,22 +17,33 @@
     <ul class="navbar-nav ml-auto">
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-            </a>
+        <?php 
+            require_once('db.php');
+            $query = "select count(*) from transictions";
+            $result_tasks = mysqli_query($mysql_db, $query); 
+            $row = mysqli_fetch_assoc($result_tasks);
+            $count = $row["count(*)"]; ?>
+                <a class="nav-link dropdown-toggle" href="Active.php">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter"><?php echo $count; ?></span>
+                </a>
         </li>
-
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['username'] ?></span>
-                <img class="img-profile rounded-circle"  src="img/undraw_profile.svg">
-            </a>
+            <?php 
+                require_once('db.php');
+                $query = "SELECT * FROM admin";
+                $result_tasks = mysqli_query($mysql_db, $query); 
+                $upload_dir = './img/school/';
+                while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $row['username']; ?></span>
+                        <img class="img-profile rounded-circle"  src="<?= "./img/admin/".$row['file']?>">
+                    </a>
+            <?php } ?>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                 aria-labelledby="userDropdown">
