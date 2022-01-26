@@ -57,7 +57,7 @@
         <div class="row align-items-center">
           <div class="col-lg-6 py-3">
             <div class="subhead">ພວກເຮົາເປັນ</div>
-            <h2 class="title-section">ໂຄງການ <span class="fg-primary">ທີ່ດີທີສຸດ</span> ສຳລັບການກຳຈັດສິງເສດເຫຼືອເພືອການ Recycle</h2>
+            <h2 class="title-section">ໂຄງການ <span class="fg-success">ທີ່ດີທີສຸດ</span> ສຳລັບການກຳຈັດສິງເສດເຫຼືອເພືອການ Recycle</h2>
 
             <p>ລາຍລະອຽດກ່ຽວກັບໂຄງການ</p>
           </div>

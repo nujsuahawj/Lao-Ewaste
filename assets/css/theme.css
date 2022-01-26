@@ -3,16 +3,17 @@ body {
   font-weight: 400;
   line-height: 1.65;
   color: #2d2f38;
+  /* background-color: 0xFFFAFAFA; */
 }
 
 a {
-  color: #4B74FE;
+  color: #07e59a;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #3463FF;
+  color: #07e59a;
   text-decoration: underline;
 }
 

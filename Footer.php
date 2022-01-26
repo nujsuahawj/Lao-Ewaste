@@ -1,12 +1,12 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 py-4">
-          <h3>Lao<span class="fg-primary">Ewaste</span></h3>
+          <h3>Ecogrowth<span class="fg-primary">Lao</span></h3>
         </div>
         <div class="col-lg-4 py-4">
           <h5>ຂໍ້ມູນຕິດຕໍ່</h5>
           <p>301 The Greenhouse, Custard Factory, London, E2 8DY.</p>
-          <p>Email: nousainther@gmail.com</p>
+          <p>Email: infor@ecogrowthlao.com</p>
           <p>Phone: +856 918 260 96</p>
         </div>
         <div class="col-lg-4 py-4">

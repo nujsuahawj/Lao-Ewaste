@@ -4,18 +4,18 @@
         <div class="row align-items-center">
           <div class="col-md-8">
             <div class="d-inline-block">
-              <span class="mai-mail fg-primary"></span> <a href="mailto:nousainther@gmail.com">nousainther@gmail.com</a>
+              <span class="mai-mail fg-success"></span> <a href="mailto:infor@ecogrowthlao.com">infor@ecogrowthlao.com</a>
             </div>
             <div class="d-inline-block ml-2">
-              <span class="mai-call fg-primary"></span> <a href="tel:+0011223495">+856 918 260 96</a>
+              <span class="mai-call fg-success"></span> <a href="tel:+0011223495">+856 918 260 96</a>
             </div>
           </div>
           <div class="col-md-4 text-right d-none d-md-block">
             <div class="social-mini-button">
-              <a href="#"><span class="mai-logo-facebook-f"></span></a>
-              <a href="#"><span class="mai-logo-twitter"></span></a>
-              <a href="#"><span class="mai-logo-youtube"></span></a>
-              <a href="#"><span class="mai-logo-linkedin"></span></a>
+              <a href="#"><span class="mai-logo-facebook-f fg-success"></span></a>
+              <a href="#"><span class="mai-logo-twitter fg-success"></span></a>
+              <a href="#"><span class="mai-logo-youtube fg-success"></span></a>
+              <a href="#"><span class="mai-logo-linkedin fg-success"></span></a>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@
     <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a href="Home.php" class="navbar-brand">Lao<span class="text-primary">Ewaste</span></a>
+        <a href="Home.php" class="navbar-brand">Ecogrowth<span class="text-success">Lao</span></a>
 
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto pt-3 pt-lg-0">
             <li class="nav-item active">
-              <a href="Home.php" class="nav-link">ໜ້າລັກ</a>
+              <a href="Home.php" class="nav-link text-success">ໜ້າລັກ</a>
             </li>
             <li class="nav-item">
               <a href="About.php" class="nav-link">ກ່ຽວກັບ</a>

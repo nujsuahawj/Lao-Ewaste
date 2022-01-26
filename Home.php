@@ -26,6 +26,9 @@
 
   <link rel="stylesheet" href="./assets/css/theme.css">
 
+  <!-- notosans -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -145,27 +148,19 @@
           <h3 class="title-section">ຈຸດຮັບຖິ້ມແຕ່ລະບອນ</h3>
         </div>
         <div class="owl-carousel team-carousel mt-5">
-          <div class="team-wrap">
-            <img src="./assets/img/teams/team_1.jpg" alt="">
-            <div class="team-content">
-              <h5>ຊື່ໂຮງຮຽນ</h5>
-              <div class="text-sm fg-grey">ລາຍລະອຽດຕ່າງໆຂອງສະຖານທີທີ່ຮັບຖິ້ມ</div>
-            </div>
-          </div>
-          <div class="team-wrap">
-            <img src="./assets/img/teams/team_1.jpg" alt="">
-            <div class="team-content">
-              <h5>ຊື່ໂຮງຮຽນ</h5>
-              <div class="text-sm fg-grey">ລາຍລະອຽດຕ່າງໆຂອງສະຖານທີທີ່ຮັບຖິ້ມ</div>
-            </div>
-          </div>
-          <div class="team-wrap">
-            <img src="./assets/img/teams/team_1.jpg" alt="">
-            <div class="team-content">
-              <h5>ຊື່ໂຮງຮຽນ</h5>
-              <div class="text-sm fg-grey">ລາຍລະອຽດຕ່າງໆຂອງສະຖານທີທີ່ຮັບຖິ້ມ</div>
-            </div>
-          </div>
+          <?php 
+              require_once('./adminecogrowth/db.php');
+              $query = "SELECT * FROM schools ORDER BY id DESC";
+              $result_tasks = mysqli_query($mysql_db, $query); 
+              while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                  <div class="team-wrap">
+                    <img src="<?= "./adminecogrowth/img/school/".$row['file']?>" alt="">
+                    <div class="team-content">
+                      <h5><?= $row['schoolname']?></h5>
+                      <div class="text-sm fg-grey"><?= $row['detials']?></div>
+                    </div>
+                  </div>
+          <?php } ?>
         </div>
       </div>
     </div>
