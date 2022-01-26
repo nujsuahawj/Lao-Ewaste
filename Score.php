@@ -64,20 +64,11 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">ກວດເບິ່ງຄະແນນຂອງທ່ານ</h1>
                                     </div>
-                                    <form class="user" action="#">
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="ID 6 ໂຕ...">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            ເບິ່ງຄະແນນ
-                                        </button>
-                                    </form>
-                                    <hr>
-                                    <div class="text-center">
-                                      <h6>ຊື່ແລະນານສະກຸນ</h6>
-                                      <p>ເບີໂທ <br> ຄະແນນທີ່ໄດ້</p>
-                                    </div>
+                                      <div class="form-group">
+                                        <input type="text" class="form-control form-control-user text-center" autocomplete="off" placeholder="ID 6 ໂຕ..." />
+                                        <hr>
+                                        <div class="result text-center"></div>
+                                      </div>
                                 </div>
                             </div>
                         </div>
@@ -132,6 +123,33 @@
 <script src="./assets/js/google-maps.js"></script>
 
 <script src="./assets/js/theme.js"></script>
+
+
+<!-- atuto search -->
+
+<script>
+$(document).ready(function(){
+    $('.form-group input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("autosearch.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".form-group").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
 
 </body>
 </html>

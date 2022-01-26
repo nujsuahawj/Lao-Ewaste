@@ -198,7 +198,7 @@
                                 <table class="table table-bordered" id="example" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ຊື່ແລະນາມສະກຸນ</th>
+                                            <th>ຊື່</th>
                                             <th>ເບີໂທ</th>
                                             <th>ໂຮງຮຽນ</th>
                                             <th>ຄະແນນ</th>

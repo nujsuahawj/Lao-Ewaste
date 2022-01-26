@@ -54,95 +54,34 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="row">
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
+            <?php 
+              include('./adminecogrowth/db.php');
+              $query = "SELECT  id, title, file, detials  FROM blos ORDER BY id DESC";
+              $result_tasks = mysqli_query($mysql_db, $query); 
+              while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                <div class="col-md-6 col-lg-4 py-3">
+                  <div class="blog">
+                    <div class="header">
+                      <img id="image" width="100%" height="300" src="<?= "./adminecogrowth/img/blogs/".$row['file']?>" alt="">
+                    </div>
+                    <div class="body">
+                      <div class="post-title">
+                        <?php 
+                        echo '<a href="ContenDedials.php?title='.$row['title'].'">'.$row['title'].'</a>';
+                        ?>
+                      </div>
+                      <div class="post-excerpt"><?php echo $row['detials']; ?>
+                    </div>
+                    </div>
+                    <div class="footer">
+                      
+                      <?php
+                        echo '<a href="ContenDedials.php?title='. $row['title'] .'" title="Delete Record" data-toggle="tooltip">ອ່ານເພີ່ມຕື່ມ<span class="fa fa-trash"></span><span class="mai-chevron-forward text-sm"></span></a>';
+                      ?>
+                    </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="col-md-6 col-lg-4 py-3">
-                <div class="blog">
-                  <div class="header">
-                    <img id="image" width="100%" height="300" src="./assets/img/teams/team_1.jpg" alt="">
-                  </div>
-                  <div class="body">
-                    <div class="post-title"><a href="blog-single.html">ຫົວຂໍ້ຂອງຂ່າວສານ</a></div>
-                    <div class="post-excerpt">ລາຍລະອຽດຂອງຂ່າວສານ</div>
-                  </div>
-                  <div class="footer">
-                    <a href="ContenDedials.php">ອ່ານຕໍ່ <span class="mai-chevron-forward text-sm"></span></a>
-                  </div>
-                </div>
-              </div>
+              <?php } ?>
 
               <!-- next page -->
               <!-- <div class="col-12 my-5">

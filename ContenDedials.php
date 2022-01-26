@@ -37,26 +37,34 @@
   </header>
 
   <main>
+    <?php 
+    $title = $_GET['title'];
+    $db = 'blos';
+    require('./adminecogrowth/db.php');
+    $sql = "SELECT * FROM $db WHERE title = '$title' ";
+    $result_tasks = mysqli_query($mysql_db, $sql); 
+    while($row = mysqli_fetch_assoc($result_tasks)) {
+      $titles = $row['title'];
+      $detials = $row['detials'];
+      $file = $row['file'];
+    }?>
     <div class="page-section pt-4">
       <div class="container">
         <nav aria-label="Breadcrumb">
           <ol class="breadcrumb bg-transparent mb-4">
             <li class="breadcrumb-item"><a href="Home.php">ໜ້າລັກ</a></li>
             <li class="breadcrumb-item"><a href="Conten.php">ຂ່າວສານ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">ຫົວຂໍ້ຂອງຂ່າວສານ</li>
+            <li class="breadcrumb-item active" aria-current="page"><?php echo $titles; ?></li>
           </ol>
         </nav>
         <div class="row">
           <div class="col-lg-8">
             <div class="blog-single-wrap">
               <div class="post-thumbnail">
-                <img src="./assets/img/bg_image_1.jpg" alt="">
+                <img src="./adminecogrowth/img/blogs/<?php echo $file; ?>" alt="">
               </div>
-              <h1 class="post-title">ຫົວຂໍ້ຂອງຂ່າວສານ</h1>
-              <div class="post-content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, magnam aliquam sit tempora atque numquam, porro autem eius in odio quos nisi sequi doloribus, quo ipsam labore corrupti mollitia! Quos.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit voluptatum dolor, nemo optio voluptatibus, distinctio obcaecati repudiandae recusandae sint sunt neque dignissimos reiciendis voluptates voluptate quibusdam temporibus, amet molestiae hic?</p>
-                <p>Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate</p>
+              <h1 class="post-title"><?php echo $titles; ?></h1>
+              <div class="post-content"><?php echo $detials; ?></p>
               </div>
             </div> <!-- .blog-single-wrap -->
           </div>
@@ -68,26 +76,15 @@
                 <h3 class="widget-title">ຂ່າວສານຫຼ້າສຸດ</h3>
                 <div class="blog-item">
                   <div class="content">
-                    <h6 class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></h6>
-                    <div class="meta">
-                      <a href="ContenDedials.php"><span class="mai-chatbubbles"></span> ອ່ານເພີ່ມຕື່ມ</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="blog-item">
-                  <div class="content">
-                    <h6 class="post-title"><a href="ContenDedials.php">ຫົວຂໍ້ຂອງຂ່າວສານ</a></h6>
-                    <div class="meta">
-                      <a href="ContenDedials.php"><span class="mai-chatbubbles"></span> ອ່ານເພີ່ມຕື່ມ</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="blog-item">
-                  <div class="content">
-                    <h6 class="post-title"><a href="#">ຫົວຂໍ້ຂອງຂ່າວສານ</a></h6>
-                    <div class="meta">
-                      <a href="ContenDedials.php"><span class="mai-chatbubbles"></span> ອ່ານເພີ່ມຕື່ມ</a>
-                    </div>
+                    <?php 
+                      $query = "SELECT * FROM blos ORDER BY id DESC limit 15";
+                      $result_tasks = mysqli_query($mysql_db, $query); 
+                      while($row = mysqli_fetch_assoc($result_tasks)) { echo '
+                      <h6 class="post-title"><a href="ContenDedials.php?title='.$row['title'].'">'.$row['title'].'</a></h6>
+                      <div class="meta">
+                        <a href="ContenDedials.php?title='.$row['title'].'"><span class="mai-chatbubbles"></span> ອ່ານເພີ່ມຕື່ມ</a>
+                      </div>';
+                    } ?>
                   </div>
                 </div>
               </div>

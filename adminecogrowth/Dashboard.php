@@ -104,7 +104,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count1; ?> ໂຮງຮຽນ</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-school fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -127,7 +127,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count2; ?> ຄົນ</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count3; ?> ບົດຄວນ</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fab fa-blogger fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

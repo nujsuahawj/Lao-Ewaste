@@ -1,3 +1,53 @@
+<?php 
+  // Include config file
+  include('./adminecogrowth/db.php');
+
+  // edited
+  if (isset($_POST['add'])) {
+      $name = $_POST['name'];
+      $phone = $_POST['phone'];
+      $schoolname = $_POST['schoolname'];
+      $sid = $_POST['sid'];
+      $poit = 0;
+      $detials = 'ບໍ່ມີ';
+
+      if(!($name)){
+          $errorMsg = 'inputname';
+          $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+          $_SESSION['message_type'] = 'danger';
+      }elseif(!($phone)){
+          $errorMsg = 'inputphone';
+          $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+          $_SESSION['message_type'] = 'danger';
+      }elseif(!($schoolname)){
+          $errorMsg = 'inputschoolname';
+          $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+          $_SESSION['message_type'] = 'danger';
+      }elseif(!($sid)){
+          $errorMsg = 'inputsid';
+          $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+          $_SESSION['message_type'] = 'danger';
+      }
+
+      if(!isset($errorMsg)){
+          $sql = "insert into students(name, phone, schoolname, sid, poit, detials)
+                  values('".$name."', '".$phone."', '".$schoolname."', '".$sid."', '".$poit."', '".$detials."')";
+          $query_run = mysqli_query($mysql_db, $sql);
+
+          if($query_run)
+          {
+              $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
+              $_SESSION['message_type'] = 'success';
+              header('Location: Score.php');
+          }
+          else
+          {
+              $errorMsg = 'Error '.mysqli_error($mysql_db);
+          }
+      }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,32 +112,45 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">ຟອມລົງທະບຽນ</h1>
+                                      <p>
+                                        <?php if (isset($_SESSION['message'])) { ?>
+                                          <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
+                                              <?= $_SESSION['message']?>
+                                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                              </button>
+                                          </div>
+                                        <?php unset($_SESSION['message']); } ?>
+                                      </p>
+                                      <h1 class="h4 text-gray-900 mb-4">ຟອມລົງທະບຽນ</h1>
                                     </div>
-                                    <form class="user" action="#">
+                                    <form class="user" method="POST" action="" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                            <input type="text" class="form-control form-control-user"
+                                                name="name" aria-describedby="emailHelp"
                                                 placeholder="ຊື່ແລະນາມສະກຸນ...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="ເບີໂທ...">
+                                            <input type="number" class="form-control form-control-user"
+                                                name="phone" placeholder="ເບີໂທ...">
                                         </div>
                                         <div class="form-group">
-                                          <select class="form-control">
-                                            <option selected>ໂຮງຮຽນ...</option>
-                                            <option value="1">1 school name</option>
-                                            <option value="2">2 school name</option>
-                                            <option value="3">3 school name</option>
+                                          <select class="form-control" name="schoolname">
+                                          <option value="">ເລືອກໂຮງຮຽນ...</option>
+                                            <?php 
+                                            $query = "SELECT * FROM schools";
+                                            $result_tasks = mysqli_query($mysql_db, $query); 
+                                            while($row = mysqli_fetch_assoc($result_tasks)) { ?>
+                                                <option value="<?php echo $row['schoolname']; ?>"><?php echo $row['schoolname']; ?></option>
+                                            <?php } ?>
                                           </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="ID 6 ໂຕທີ່ທ່ານມັກທີສຸດແລະຈື່ງ່າຍທີ່ສຸດ...">
+                                            <input type="text" class="form-control form-control-user"
+                                                name="sid" placeholder="ID 6 ໂຕທີ່ທ່ານມັກທີສຸດແລະຈື່ງ່າຍທີ່ສຸດ...">
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" name="add" class="btn btn-primary btn-user btn-block">
                                             ບັນທຶກ
                                         </button>
                                     </form>

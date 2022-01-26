@@ -31,19 +31,19 @@
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link" href="School.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-school"></i>
             <span>ໂຮງຮຽນ</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="Student.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-user-graduate"></i>
             <span>ນັກຮຽນ</span>
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="Content.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fab fa-blogger"></i>
             <span>ບົດຄວນ</span>
         </a>
     </li>
@@ -59,7 +59,7 @@
     <!-- Nav Item - Charts -->
     <li class="nav-item">
         <a class="nav-link" href="Ewaste.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+            <i class="fas fa-calendar"></i>
             <span>ຂີ້ເຫຍື້ອ</span>
         </a>
     </li>
@@ -67,7 +67,7 @@
             <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="Active.php">
-            <i class="fas fa-fw fa-table"></i>
+            <i class="fas fa-building"></i>
             <span>ທຸລະກຳ</span>
         </a>
     </li>
