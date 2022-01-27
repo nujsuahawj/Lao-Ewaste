@@ -161,7 +161,6 @@
                     <!-- Content Row -->
 
                     <div class="row">
-
                         <!-- Area Chart -->
                         <div class="col-xl-8 col-lg-7">
                             <!-- Project Card Example -->
@@ -170,31 +169,40 @@
                                     <h6 class="m-0 font-weight-bold text-primary">5 ຄົນທີ່ໄດ້ຄະແນນສູງສຸດ</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
+                                    <?php 
+                                    require_once('db.php');
+                                    $db = 'students';
+                                    $colum = 'poit';
+                                    $resultstudent = mysqli_query($mysql_db, "SELECT * FROM $db ORDER BY $colum DESC LIMIT 5");
+                                    $result_tasks = mysqli_query($mysql_db, $resultstudent); 
+                                        while($row = mysqli_fetch_assoc($result_tasks)) {
+                                        $sname = $row['name'];
+                                        $school = $row['schoolname'];}?>
+                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
                                             class="float-right">20%</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
+                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
                                             class="float-right">40%</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
+                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
                                             class="float-right">60%</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
+                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
                                             class="float-right">80%</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%"
                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">ຊື່ ນາມສະກຸນ ແລະ ໂຮງຮຽນ <span
+                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
                                             class="float-right">100%</span></h4>
                                     <div class="progress">
                                         <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"
