@@ -170,44 +170,72 @@
                                 </div>
                                 <div class="card-body">
                                     <?php 
-                                    require_once('db.php');
-                                    $db = 'students';
-                                    $colum = 'poit';
-                                    $resultstudent = mysqli_query($mysql_db, "SELECT * FROM $db ORDER BY $colum DESC LIMIT 5");
-                                    $result_tasks = mysqli_query($mysql_db, $resultstudent); 
-                                        while($row = mysqli_fetch_assoc($result_tasks)) {
-                                        $sname = $row['name'];
-                                        $school = $row['schoolname'];}?>
-                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
-                                            class="float-right">20%</span></h4>
+                                        require_once('db.php');
+
+                                        $resultm = mysqli_query($mysql_db, "SELECT Max(poit) as 'maxpoit' FROM students");
+                                        $row = mysqli_fetch_array($resultm);
+                                        $poitm = $row['maxpoit'];
+
+                                        $resultm2 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 1,1;");
+                                        $row = mysqli_fetch_array($resultm2);
+                                        $poitm2 = $row['poit'];
+
+                                        $resultm3 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 2,1;");
+                                        $row = mysqli_fetch_array($resultm3);
+                                        $poitm3 = $row['poit'];
+                                        
+                                        $resultm4 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 3,1;");
+                                        $row = mysqli_fetch_array($resultm4);
+                                        $poitm4 = $row['poit'];
+
+                                        $resultm5 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 4,1;");
+                                        $row = mysqli_fetch_array($resultm5);
+                                        $poitm5 = $row['poit'];
+
+
+                                            $query = "SELECT * FROM students order by poit desc limit 5";
+                                            $result_tasks = mysqli_query($mysql_db, $query); 
+                                            while($row = mysqli_fetch_assoc($result_tasks)) { 
+                                                $snames = $row['name'];
+                                                $sschoolname = $row['schoolname'];
+                                                $spoit = $row['poit'];?>
+                                    <?php if($spoit >= $poitm) {?>
+                                    <h4 class="small font-weight-bold"> <?php echo $snames; ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?>
+                                        <span class="float-right">ອັນດັບ 1</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm ?> ຄະແນນ</div>
                                     </div>
-                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
-                                            class="float-right">40%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
-                                            class="float-right">60%</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                    </div>
-                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
-                                            class="float-right">80%</span></h4>
+                                    <?php } elseif($spoit >= $poitm2){ ?>
+                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
+                                            class="float-right">ອັນດັບ 2</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm2 ?> ຄະແນນ</div>
                                     </div>
-                                    <h4 class="small font-weight-bold"><?php echo $sname; ?> <span
-                                            class="float-right">100%</span></h4>
+                                    
+                                    <?php }elseif($spoit >= $poitm3){?>
+                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?> <span
+                                            class="float-right">ອັນດັບ 3</span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm3 ?> ຄະແນນ</div>
+                                    </div><br>
+                                    <?php } elseif($spoit >= $poitm4){?>
+                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
+                                            class="float-right">ອັນດັບ 4</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm4 ?> ຄະແນນ</div>
                                     </div>
+                                    <?php }else{ ?>
+                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
+                                            class="float-right">ອັນດັບ 5</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm5 ?> ຄະແນນ</div>
+                                    </div>
+                                    <?php }}?>
                                 </div>
                             </div>
                         </div>
