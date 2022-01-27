@@ -7,13 +7,13 @@ body {
 }
 
 a {
-  color: #07e59a;
+  color: #06CC89;
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: #07e59a;
+  color: #06CC89;
   text-decoration: underline;
 }
 
@@ -1581,7 +1581,7 @@ a.fg-light:hover, a.fg-light:focus {
 }
 
 .top-bar a:hover {
-  color: #2F89FC;
+  color: #07e59a;
   text-decoration: none;
 }
 
@@ -2359,7 +2359,7 @@ a.fg-light:hover, a.fg-light:focus {
   line-height: 50px;
   border-radius: 50%;
   text-align: center;
-  background-color: #2F89FC;
+  background-color: #07e59a;
   color: #fff;
 }
 
@@ -2397,6 +2397,6 @@ a.fg-light:hover, a.fg-light:focus {
 }
 
 .owl-carousel button.owl-dot.active {
-  background-color: #2F89FC;
+  background-color: #07e59a;
 }
 /*# sourceMappingURL=theme.css.map */

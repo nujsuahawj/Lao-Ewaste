@@ -56,9 +56,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  <meta name="copyright" content="Mr Jack Sainther, https://www.facebook.com/nousua.sainther">
 
-  <title>laos ewaste</title>
+  <title>EcogrowthLao - ລົງທະບຽນຝາກຖິ້ມກັບໂຄງການ</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +79,8 @@
 </head>
 <body>
 
+  <div id="laoding"></div>
+
   <header>
     <?php include 'Header.php';?>
 
@@ -88,7 +90,7 @@
           <div class="col-lg-8">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0">
-                <li class="breadcrumb-item"><a href="Home.php">ໜ້າລັກ</a></li>
+                <li class="breadcrumb-item"><a href="Home">ໜ້າລັກ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">ລົງທະບຽນ</li>
               </ol>
             </nav>
@@ -156,7 +158,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="Score.php">ເບິ່ງຄະແນນສະສົນຂອງທ່ານ</a>
+                                        <a class="small" href="Score">ເບິ່ງຄະແນນສະສົນຂອງທ່ານ</a>
                                     </div>
                                 </div>
                             </div>
@@ -212,6 +214,12 @@
 <script src="./assets/js/google-maps.js"></script>
 
 <script src="./assets/js/theme.js"></script>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#laoding').fadeOut(1000);
+  });
+</script>
 
 </body>
 </html>

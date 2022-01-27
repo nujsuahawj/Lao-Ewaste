@@ -12,6 +12,7 @@
     if (isset($_POST['Submit'])) {
         $title = $_POST['title'];
         $detials = $_POST['detials'];
+        $detials1 = $_POST['detials1'];
 
         $imgName = $_FILES['image']['name'];
         $imgTmp = $_FILES['image']['tmp_name'];
@@ -21,8 +22,12 @@
             $errorMsg = 'inputnschoolsname';
             $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
             $_SESSION['message_type'] = 'danger';
-        }elseif(!($detials)){
+        }elseif(!($detials1)){
             $errorMsg = 'inputdetials';
+        }elseif(!($detials)){
+            $errorMsg = 'inputnschoolsname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
         }else{
 
             $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
@@ -43,8 +48,8 @@
             }
         }
         if(!isset($errorMsg)){
-            $sql = "insert into blos(title, detials, file)
-                    values('".$title."', '".$detials."', '".$userPic."')";
+            $sql = "insert into blos(title, detials1, detials, file)
+                    values('".$title."', '".$detials1."', '".$detials."', '".$userPic."')";
           $result = mysqli_query($mysql_db, $sql);
           if($result){
               $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
@@ -62,7 +67,9 @@
         $titleid = $_POST['title'];
 
         if(!($titleid)){
-            $errorMsg = 'inputstudentid';
+            $errorMsg = 'inputnschoolsname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
         }
 
         if(!isset($errorMsg)){
@@ -84,6 +91,7 @@
     // edited
     if (isset($_POST['edited'])) {
         $title = $_POST['title'];
+        $detials1 = $_POST['detials1'];
         $detials = $_POST['detials'];
 
         $imgName = $_FILES['image']['name'];
@@ -92,6 +100,10 @@
 
         if(!($title)){
             $errorMsg = 'inputnschoolsname';
+            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+            $_SESSION['message_type'] = 'danger';
+        }elseif(!($detials1)){
+            $errorMsg = 'inputdetials';
             $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
             $_SESSION['message_type'] = 'danger';
         }elseif(!($detials)){
@@ -118,7 +130,7 @@
             }
         }
         if(!isset($errorMsg)){
-            $query = "UPDATE blos SET title='$title', detials='$detials', file='$userPic' WHERE title='$title'  ";
+            $query = "UPDATE blos SET title='$title', detials1='$detials1', detials='$detials', file='$userPic' WHERE title='$title'  ";
             $query_run = mysqli_query($mysql_db, $query);
 
             if($query_run)
@@ -219,7 +231,7 @@
                                     <thead>
                                         <tr>
                                             <th>ຊື່ເລື່ອງ</th>
-                                            <th>ລາຍລະອຽດ</th>
+                                            <th>ລາຍລະອຽດ 40 ຄຳ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -278,7 +290,12 @@
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="text" class="form-control input-lg" name="detials" placeholder="ລາຍລະອຽດ...">
+                                <input type="text" class="form-control form-control-user" name="detials1" placeholder="ລາຍລະອຽດບໍ່ໃຫ້ເກີນ 40 ຄຳ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="text" class="form-control input-lg" name="detials" placeholder="ລາຍລະອຽດທັງໝົດ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -364,7 +381,12 @@
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="text" class="form-control input-lg" name="detials" placeholder="ລາຍລະອຽດ...">
+                                <input type="text" class="form-control form-control-user" name="detials1" placeholder="ລາຍລະອຽດບໍ່ໃຫ້ເກີນ 40 ຄຳ...">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <input type="text" class="form-control input-lg" name="detials" placeholder="ລາຍລະອຽດທັງໝົດ...">
                             </div>
                         </div>
                         <div class="form-group">
@@ -412,7 +434,7 @@
 					"ajax": "dbBlogs.php",
 					'columns': [
                             { data: 'title' },
-                            { data: 'detials' },
+                            { data: 'detials1' },
 						],
 				} );
 			} );

@@ -47,7 +47,7 @@ if(isset($_POST['start'])){
 
 			    $data[] = array(
 					'title'=> $row['title'],
-					'detials'=> $row['detials'],
+					'detials1'=> $row['detials1'],
 				);
 		  }
 		}

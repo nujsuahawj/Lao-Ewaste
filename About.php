@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  <meta name="copyright" content="Mr Jack Sainther, https://www.facebook.com/nousua.sainther">
 
-  <title>laos ewaste</title>
+  <title>EcogrowthLao - ກ່ຽວກັບຂອງໂຄງການ</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,9 +25,14 @@
   <link rel="stylesheet" href="./assets/vendor/fancybox/css/jquery.fancybox.css">
 
   <link rel="stylesheet" href="./assets/css/theme.css">
+
+  <!-- notosans -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
+  <div id="laoding"></div>
   <!-- Back to top button -->
   <div class="back-to-top"></div>
 
@@ -40,7 +45,7 @@
           <div class="col-lg-8">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0">
-                <li class="breadcrumb-item"><a href="Home.php">ໜ້າລັກ</a></li>
+                <li class="breadcrumb-item"><a href="Home">ໜ້າລັກ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">ກ່ຽວກັບ</li>
               </ol>
             </nav>
@@ -118,6 +123,12 @@
 <script src="./assets/js/google-maps.js"></script>
 
 <script src="./assets/js/theme.js"></script>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#laoding').fadeOut(1000);
+  });
+</script>
 
 </body>
 </html>

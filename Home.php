@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  <meta name="copyright" content="Mr Jack Sainther, https://www.facebook.com/nousua.sainther">
 
-  <title>laos ewaste</title>
+  <title>EcogrowthLao - ໜ້າລັກຂອງໂຄງການ</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,17 +31,15 @@
 
 </head>
 <body>
-
+  <div id="laoding"></div>
   <!-- Back to top button -->
 
   <header>
     <?php include 'Header.php';?>
     <?php include 'Slibe.php';?>
-    
   </header>
 
   <main>
-
     <div class="page-section">
       <div class="container">
         <div class="text-center">
@@ -215,5 +213,12 @@
 <script src="./assets/js/google-maps.js"></script>
 
 <script src="./assets/js/theme.js"></script>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#laoding').fadeOut(1000);
+  });
+</script>
+
 </body>
 </html>

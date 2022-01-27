@@ -6,9 +6,9 @@
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+  <meta name="copyright" content="Mr Jack Sainther, https://www.facebook.com/nousua.sainther">
 
-  <title>laos ewaste</title>
+  <title>EcogrowthLao - ການເຄື່ອນໄຫວຂອງໂຄງການ</title>
   <link rel="icon" type="image/x-icon" href="./assets/img/icons.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,8 +26,13 @@
 
   <link rel="stylesheet" href="./assets/css/theme.css">
 
+  <!-- notosans -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
+
+  <div id="laoding"></div>
 
   <header>
     <?php include 'Header.php';?>
@@ -37,7 +42,7 @@
           <div class="col-lg-8">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-dark bg-transparent justify-content-center py-0">
-                <li class="breadcrumb-item"><a href="Home.php">ໜ້າລັກ</a></li>
+                <li class="breadcrumb-item"><a href="Home">ໜ້າລັກ</a></li>
                 <li class="breadcrumb-item active" aria-current="page">ຂ່າວສານ</li>
               </ol>
             </nav>
@@ -56,7 +61,8 @@
             <div class="row">
             <?php 
               include('./adminecogrowth/db.php');
-              $query = "SELECT  id, title, file, detials  FROM blos ORDER BY id DESC";
+              $query = "SELECT  id, title, file, detials1 FROM blos group BY id DESC";
+
               $result_tasks = mysqli_query($mysql_db, $query); 
               while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                 <div class="col-md-6 col-lg-4 py-3">
@@ -67,16 +73,16 @@
                     <div class="body">
                       <div class="post-title">
                         <?php 
-                        echo '<a href="ContenDedials.php?title='.$row['title'].'">'.$row['title'].'</a>';
+                        echo '<a href="ContenDedials?title='.$row['title'].'">'.$row['title'].'</a>';
                         ?>
                       </div>
-                      <div class="post-excerpt"><?php echo $row['detials']; ?>
+                      <div class="post-excerpt"><?php echo $row['detials1']; ?>
                     </div>
                     </div>
                     <div class="footer">
                       
                       <?php
-                        echo '<a href="ContenDedials.php?title='. $row['title'] .'" title="Delete Record" data-toggle="tooltip">ອ່ານເພີ່ມຕື່ມ<span class="fa fa-trash"></span><span class="mai-chevron-forward text-sm"></span></a>';
+                        echo '<a class="btn btn-success" href="ContenDedials?title='. $row['title'] .'" title="ອ່ານເພີ່ມຕື່ມ" data-toggle="tooltip">ອ່ານເພີ່ມຕື່ມ<span class="fa fa-trash"></span><span class="mai-chevron-forward text-sm"></span></a>';
                       ?>
                     </div>
                   </div>
@@ -133,6 +139,12 @@
 <script src="./assets/js/google-maps.js"></script>
 
 <script src="./assets/js/theme.js"></script>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('#laoding').fadeOut(1000);
+  });
+</script>
 
 </body>
 </html>

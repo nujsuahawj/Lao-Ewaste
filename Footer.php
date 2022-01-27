@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-4 py-4">
-          <h3>Ecogrowth<span class="fg-primary">Lao</span></h3>
+          <h3>Ecogrowth<span class="fg-success">Lao</span></h3>
+          <img id="logof" src="./assets/img/icons.png" alt="" class="img-fluid" >
         </div>
         <div class="col-lg-4 py-4">
           <h5>ຂໍ້ມູນຕິດຕໍ່</h5>
@@ -23,10 +24,10 @@
         </div>
         <div class="col-md-6 text-right">
           <div class="sosmed-button">
-            <a href="#"><span class="mai-logo-facebook-f"></span></a>
-            <a href="#"><span class="mai-logo-twitter"></span></a>
-            <a href="#"><span class="mai-logo-youtube"></span></a>
-            <a href="#"><span class="mai-logo-linkedin"></span></a>
+            <a href="https://www.facebook.com/nousua.sainther"><span class="mai-logo-facebook-f fg-success"></span></a>
+            <a href="https://wa.me/91826096"><span class="mai-logo-twitter fg-success"></span></a>
+            <a href="https://www.facebook.com/nousua.sainther"><span class="mai-logo-youtube fg-success"></span></a>
+            <a href="https://wa.me/91826096"><span class="mai-logo-linkedin fg-success"></span></a>
           </div>
         </div>
     </div>

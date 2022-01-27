@@ -23,7 +23,7 @@
               <div class="subhead">ຕົວເລກຈຳນວນທີພວກເຮົາເກັບໄດ້ທັງໝົດມີ</div>
               <h1 class="mb-4">ຈຳນວນ <?php echo $pit; ?> kg</h1>
               <!-- <a href="#services" class="btn btn-outline-light">Get Started</a>
-              <a href="#services" class="btn btn-primary">See Pricing</a> -->
+              <a href="#services" class="btn btn-success">See Pricing</a> -->
             </div>
           </div>
           <div class="hero-carousel-item">
@@ -35,7 +35,7 @@
             <div class="img-caption">
               <div class="subhead"><?php echo $row['title']; ?></div>
               <h1 class="mb-4">ກິດຈະກຳຂອງພວເຮົາ</h1>
-              <a href="#services" class="btn btn-primary">ອ່ານເພີ່ມຕື່ມ</a>
+              <a href="#services" class="btn btn-success">ອ່ານເພີ່ມຕື່ມ</a>
             </div>
             <?php } ?>
           </div>
