@@ -7,6 +7,6 @@
    header("location: Dashboard");
    exit;
  }else{
-    header("location: Home");
+    header("location: Login");
     exit;
  }

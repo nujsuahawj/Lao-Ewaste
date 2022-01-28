@@ -1,4 +1,4 @@
-# RewriteEngine On
+RewriteEngine On
 RewriteRule ^Home?$ Home.php
 RewriteRule ^About?$ About.php
 RewriteRule ^Conten?$ Conten.php
@@ -8,5 +8,5 @@ RewriteRule ^Score?$ Score.php
 
 
 #NOFOT WHEN IS .php
-RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
-RewriteRule .* - [L,R=404]
+# RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.php[? ].*$"
+# RewriteRule .* - [L,R=404]

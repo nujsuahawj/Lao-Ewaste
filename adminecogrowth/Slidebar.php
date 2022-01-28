@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashboard.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
             <!-- <i class="fas fa-laugh-wink"></i> -->
             <div class="sidebar-brand-text mx-3">ສະບາຍດີ!</div>
@@ -15,7 +15,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="Dashboard.php">
+        <a class="nav-link" href="Dashboard">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -30,19 +30,19 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="School.php">
+        <a class="nav-link" href="School">
             <i class="fas fa-school"></i>
             <span>ໂຮງຮຽນ</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="Student.php">
+        <a class="nav-link" href="Student">
             <i class="fas fa-user-graduate"></i>
             <span>ນັກຮຽນ</span>
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="Content.php">
+        <a class="nav-link" href="Content">
             <i class="fab fa-blogger"></i>
             <span>ບົດຄວນ</span>
         </a>
@@ -58,7 +58,7 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="Ewaste.php">
+        <a class="nav-link" href="Ewaste">
             <i class="fas fa-calendar"></i>
             <span>ຂີ້ເຫຍື້ອ</span>
         </a>
@@ -66,7 +66,7 @@
 
             <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="Active.php">
+        <a class="nav-link" href="Active">
             <i class="fas fa-building"></i>
             <span>ທຸລະກຳ</span>
         </a>

@@ -1,0 +1,9 @@
+RewriteEngine On
+RewriteRule ^Login?$ Login.php
+RewriteRule ^Dashboard?$ Dashboard.php
+RewriteRule ^Profile?$ Profile.php
+RewriteRule ^School?$ School.php
+RewriteRule ^Student?$ Student.php
+RewriteRule ^Content?$ Content.php
+RewriteRule ^Ewaste?$ Ewaste.php
+RewriteRule ^Active?$ Active.php

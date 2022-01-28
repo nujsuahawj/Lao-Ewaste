@@ -199,7 +199,7 @@
                         <div class="form-group">
                             <div>
                                 <select class="form-control" name="studentname" id="single" style="width:100%">
-                                    <option >ນັກຮຽນ...</option>
+                                    <option value="">ນັກຮຽນ...</option>
                                     <?php 
                                         $query = "SELECT * FROM students";
                                         $result_tasks = mysqli_query($mysql_db, $query); 
@@ -212,7 +212,7 @@
                         <div class="form-group">
                             <div>
                             <select class="form-control " name="schoolname">
-                                <option >ໂຮງຮຽນ...</option>
+                                <option value="">ໂຮງຮຽນ...</option>
                                     <?php 
                                     $query = "SELECT * FROM schools";
                                     $result_tasks = mysqli_query($mysql_db, $query); 

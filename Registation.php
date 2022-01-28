@@ -152,7 +152,7 @@
                                                 name="sid" placeholder="ID 6 ໂຕທີ່ທ່ານມັກທີສຸດແລະຈື່ງ່າຍທີ່ສຸດ...">
                                         </div>
                                         
-                                        <button type="submit" name="add" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" name="add" class="btn btn-success btn-user btn-block">
                                             ບັນທຶກ
                                         </button>
                                     </form>
