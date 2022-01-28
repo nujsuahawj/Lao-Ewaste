@@ -64,16 +64,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="ecogrowthlao">
+    <meta name="author" content="Mr Jack Sainther">
 
-    <title>laos ewaste</title>
+    <title>EcogrowLao - ຈັດການກັບຂີ້ເຫຍື້ອ</title>
     <link rel="icon" type="image/x-icon" href="./img/icons/icons.png">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -85,9 +86,21 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+    <style>
+      /* laoding */
+        #laoding{
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+          background: #fff url("css/loading_large.gif") no-repeat center center;
+          z-index: 999;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
+    <div id="laoding"></div>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -126,7 +139,7 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">ຂໍ້ມູນທັງໝົດ <button class="btn btn-primary" data-toggle="modal" data-target="#ewasteModal"><i class="fas fa-plus-circle"></i></button></h6>
+                            <h6 class="m-0 font-weight-bold text-success">ຂໍ້ມູນທັງໝົດ <button class="btn btn-success" data-toggle="modal" data-target="#ewasteModal"><i class="fas fa-plus-circle"></i></button></h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -230,7 +243,7 @@
                         </div>
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="submit" name="edited" class="btn btn-primary">ບັນທຶກ</button>
+                            <button type="submit" name="edited" class="btn btn-success">ບັນທຶກ</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">ຍົກເລີກ</button>
                         </div>
                     </form>
@@ -285,6 +298,12 @@
 				} );
 			} );
 	</script>
+
+    <script>
+      jQuery(document).ready(function(){
+        jQuery('#laoding').fadeOut(1000);
+      });
+    </script>
 
 </body>
 

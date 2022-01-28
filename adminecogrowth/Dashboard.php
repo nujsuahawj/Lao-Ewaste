@@ -16,25 +16,38 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="ecogrowthlao">
+    <meta name="author" content="Mr Jack Sainther">
 
-    <title>laos ewaste</title>
+    <title>EcogrowLao - Dashboard</title>
     <link rel="icon" type="image/x-icon" href="./img/icons/icons.png">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+      /* laoding */
+        #laoding{
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+          background: #fff url("css/loading_large.gif") no-repeat center center;
+          z-index: 999;
+        }
+    </style>
+
 </head>
 
 <body id="page-top">
 
+    <div id="laoding"></div>
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -65,7 +78,7 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-bottom-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                     <?php 
@@ -74,11 +87,12 @@
                                         $row = mysqli_fetch_array($result4);
                                         $count4 = $row['value_sum'];
                                         $kg = 1000;
-                                        $pit = $count4 / $kg ?>
+                                        $pit = $count4 / $kg ;
+                                        $pitf = number_format($pit, 3, ',', '.');?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 ຈຳນວນຂີ້ເຫຍື້ອ</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $pit; ?> kg</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo  $pitf; ?> kg</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -90,7 +104,7 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
+                            <div class="card border-bottom-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                     <?php 
@@ -113,7 +127,7 @@
 
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card border-bottom-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                     <?php 
@@ -136,7 +150,7 @@
 
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-bottom-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                     <?php 
@@ -174,6 +188,7 @@
 
                                         $resultm = mysqli_query($mysql_db, "SELECT Max(poit) as 'maxpoit' FROM students");
                                         $row = mysqli_fetch_array($resultm);
+                                        $poitbys = $row['maxpoit'];
                                         $poitm = $row['maxpoit'];
 
                                         $resultm2 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 1,1;");
@@ -203,15 +218,15 @@
                                     <h4 class="small font-weight-bold"> <?php echo $snames; ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?>
                                         <span class="float-right">ອັນດັບ 1</span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm ?> ຄະແນນ</div>
+                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;"
+                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm, 3, ',', '.') ?> g</div>
                                     </div>
                                     <?php } elseif($spoit >= $poitm2){ ?>
                                     <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
                                             class="float-right">ອັນດັບ 2</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm2 ?> ຄະແນນ</div>
+                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm2, 3, ',', '.') ?> g</div>
                                     </div>
                                     
                                     <?php }elseif($spoit >= $poitm3){?>
@@ -219,21 +234,21 @@
                                             class="float-right">ອັນດັບ 3</span></h4>
                                     <div class="progress">
                                         <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm3 ?> ຄະແນນ</div>
+                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm3, 3, ',', '.') ?> g</div>
                                     </div><br>
                                     <?php } elseif($spoit >= $poitm4){?>
                                     <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
                                             class="float-right">ອັນດັບ 4</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm4 ?> ຄະແນນ</div>
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm4, 3, ',', '.') ?> g</div>
                                     </div>
                                     <?php }else{ ?>
                                     <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
                                             class="float-right">ອັນດັບ 5</span></h4>
                                     <div class="progress mb-4">
                                         <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><?php echo $poitm5 ?> ຄະແນນ</div>
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm5, 3, ',', '.') ?> g</div>
                                     </div>
                                     <?php }}?>
                                 </div>
@@ -250,7 +265,7 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-pie pt-4 pb-2">
+                                    <!-- <div class="chart-pie pt-4 pb-2">
                                         <canvas id="myPieChart"></canvas>
                                     </div>
                                     <div class="mt-4 text-center small">
@@ -263,6 +278,114 @@
                                         <span class="mr-2">
                                             <i class="fas fa-circle text-info"></i> ເຊໂປນ
                                         </span>
+                                    </div> -->
+
+                                    <?php 
+                                        require_once('db.php');
+                                        $results1 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum1 FROM students WHERE schoolname = 'ມສ ວຽນຈັນ' ");
+                                        $row = mysqli_fetch_array($results1);
+                                        $ss1 = $row['value_sum1'];
+                                        $ssn1 = $row['schoolname'];
+
+                                        $results2 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum2 FROM students WHERE schoolname = 'ໂຮງຮຽນນາທ້າວ' ");
+                                        $row = mysqli_fetch_array($results2);
+                                        $ss2 = $row['value_sum2'];
+                                        $ssn2 = $row['schoolname'];
+
+                                        $results3 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum3 FROM students WHERE schoolname = 'ລາວ ແທ້ ອັບແແດບ' ");
+                                        $row = mysqli_fetch_array($results3);
+                                        $ss3 = $row['value_sum3'];
+                                        $ssn3 = $row['schoolname'];
+                                        
+                                        $resum = $ss1 + $ss2 + $ss3;
+                                        $ss1per1 = $ss1*100/$resum;
+                                        $kg1 = 1000;
+                                        $ss1per1k = $ss1 / $kg1;
+                                        $ss1per1kf = number_format($ss1per1k,3, ',', '.');
+                                        $ss1per1f = number_format($ss1per1,2);
+
+                                        $ss1per2 = $ss2*100/$resum;
+                                        $ss1per2k = $ss2 / $kg1;
+                                        $ss1per2kf = number_format($ss1per2k,3, ',', '.');
+                                        $ss1per2f = number_format($ss1per2,2);
+
+                                        $ss1per3 = $ss3*100/$resum;
+                                        $ss1per3k = $ss3 / $kg1;
+                                        $ss1per3kf = number_format($ss1per3k,3, ',', '.');
+                                        $ss1per3f = number_format($ss1per3,2);
+                                    ?>
+
+                                    <div class="card bg-success border-left-warning shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn1 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per1kf ?> kg</div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per1f; ?>%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-warning" role="progressbar"
+                                                                    style="width: <?php echo $ss1per1f; ?>%" aria-valuenow="<?php echo $ss1per1f; ?>" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <div class="card bg-info border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn2 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per2kf ?> kg </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per2f; ?>%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-primary" role="progressbar"
+                                                                    style="width: <?php echo $ss1per2f; ?>%" aria-valuenow="<?php echo $ss1per2f; ?>" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <div class="card bg-primary border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn3 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per3kf ?> kg   </div>
+                                                    <div class="row no-gutters align-items-center">
+                                                        <div class="col-auto">
+                                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per3f; ?>%</div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="progress progress-sm mr-2">
+                                                                <div class="progress-bar bg-danger" role="progressbar"
+                                                                    style="width: <?php echo $ss1per3f; ?>%" aria-valuenow="<?php echo $ss1per3f; ?>" aria-valuemin="0"
+                                                                    aria-valuemax="100"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-auto">
+                                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                                </div> -->
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -313,6 +436,12 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+
+    <script>
+      jQuery(document).ready(function(){
+        jQuery('#laoding').fadeOut(1000);
+      });
+    </script>
 
 </body>
 

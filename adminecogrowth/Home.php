@@ -100,25 +100,37 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="ecogrowthlao">
+    <meta name="author" content="Mr Jack Sainther">
 
-    <title>las ewaste</title>
+    <title>EcogrowthLao - ເຂົ້າສູ່ລະບົບ admin!</title>
     <link rel="icon" type="image/x-icon" href="./img/icons/icons.png">
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link href="css/style.css" rel="stylesheet" >
+    
+    <style>
+      /* laoding */
+        #laoding{
+          position: fixed;
+          width: 100%;
+          height: 100vh;
+          background: #fff url("css/loading_large.gif") no-repeat center center;
+          z-index: 999;
+        }
+    </style>
 
 </head>
 
-<body class="bg-gradient-primary">
-
+<body class="bg-gradient-success">
+    <div id="laoding"></div>
     <div class="container">
       <section>
 
@@ -150,11 +162,11 @@
                                                 <span class="help-block text-danger" style="font-size: small;"><?php echo $password_err;?></span>
                                         </div>
                                         <hr>
-                                        <input type="submit" value="ເຂົ້າສູ່ລະບົບ" class="btn btn-primary btn-user btn-block">
+                                        <input type="submit" value="ເຂົ້າສູ່ລະບົບ" class="btn btn-success btn-user btn-block">
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="../Home.php">ກັບຄືນສູ່ໜ້າລັກ</a>
+                                        <a class="small text-success" href="../Home">ກັບຄືນສູ່ໜ້າລັກ</a>
                                     </div>
                                 </div>
                             </div>
@@ -177,6 +189,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+      jQuery(document).ready(function(){
+        jQuery('#laoding').fadeOut(1000);
+      });
+    </script>
 
 </body>
 
