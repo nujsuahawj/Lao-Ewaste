@@ -44,7 +44,7 @@
       <div class="container">
         <div class="text-center">
           <div class="subhead">ບໍລິການຂອງພວກເຮົາ</div>
-          <h3 class="title-section">ສິ່ງເສດເຫຼືອທີ່ຮັບຖິ້ມ</h3>
+          <h3 class="title-section text-success">ສິ່ງເສດເຫຼືອທີ່ຮັບຖິ້ມ</h3>
         </div>
 
         <div class="row justify-content-center">
@@ -126,7 +126,7 @@
       <div class="container">
         <div class="text-center">
           <div class="subhead">ວິດີໂອແນະນຳ</div>
-          <h3 class="title-section">ວິທີ ແລະ ຂັ້ນຕອນ</h3>
+          <h3 class="title-section text-success">ວິທີ ແລະ ຂັ້ນຕອນ</h3>
         </div>
         <iframe src="https://www.youtube.com/embed/0UvTyj2Y-AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="owl-carousel team-carousel mt-5">
@@ -143,7 +143,7 @@
       <div class="container">
         <div class="text-center">
           <div class="subhead">ບໍລິການຂອງພວກເຮົາ</div>
-          <h3 class="title-section">ຈຸດຮັບຖິ້ມແຕ່ລະບອນ</h3>
+          <h3 class="title-section text-success">ຈຸດຮັບຖິ້ມແຕ່ລະບອນ</h3>
         </div>
         <div class="owl-carousel team-carousel mt-5">
           <?php 
@@ -163,34 +163,6 @@
       </div>
     </div>
     <!-- end point rebrand -->
-    
-    <!-- tean -->
-    <?php include 'OurTeam.php';?>
-    <!-- end tean -->
-   
-    <!-- our parner -->
-    <div class="page-section">
-      <div class="container-fluid">
-        <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center text-center">
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/airbnb.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/google.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/mailchimp.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/paypal.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/stripe.png" alt="">
-          </div>
-        </div>
-      </div> <!-- .container-fluid -->
-    </div> <!-- .page-section -->
-    <!-- end our parnet -->
   </main>
 
   <footer class="page-footer">

@@ -7,7 +7,7 @@
               <span class="mai-mail fg-success"></span> <a href="mailto:infor@ecogrowthlao.com">infor@ecogrowthlao.com</a>
             </div>
             <div class="d-inline-block ml-2">
-              <span class="mai-call fg-success"></span> <a href="tel:+0011223495">+856 918 260 96</a>
+              <span class="mai-call fg-success"></span> <a href="tel:+0011223495">+8562056632446</a>
             </div>
           </div>
           <div class="col-md-4 text-right d-none d-md-block">

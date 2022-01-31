@@ -61,10 +61,13 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-6 py-3">
-            <div class="subhead">ພວກເຮົາເປັນ</div>
-            <h2 class="title-section">ໂຄງການ <span class="fg-success">ທີ່ດີທີສຸດ</span> ສຳລັບການກຳຈັດສິງເສດເຫຼືອເພືອການ Recycle</h2>
-
-            <p>ລາຍລະອຽດກ່ຽວກັບໂຄງການ</p>
+            <!-- <div class="subhead">ພວກເຮົາ</div> -->
+            <h2 class="title-section">ພາບລວມຂອງ <span class="fg-success">Eco-Growth Laos</span></h2>
+            <p>ແມ່ນໜຶ່ງໃນໂຄງການ ໄວໜຸ່ມຕໍ່ການປ່ຽນແປງດິນຟ້າອາກາດ ທີ່ໄດ້ຮັບການສະໜັບສະໜູນ ແລະ ຊ່ວຍເຫຼືອຈາກທາງ Zero Waste Laos ແລະ ສະຫະພາບເອີຣົບ ປະຈໍາ ສ.ປ.ປ. ລາວ ໂດຍມີຈຸດປະສົງເພື່ອຕ້ອງການຢາກເຫັນຊາວໜຸ່ມລາວມີແນວຄິດ ແລະ ມີຄວາມກະຕືລືລົ້ນໃນການແກ້ໄຂບັນຫາການປ່ຽນແປງດິນຟ້າອາກາດ ກໍຄື ບັນຫາສິ່ງແວດລ້ອມທີ່ກໍາລັງເປັນບັນຫາໂລກໃນປັດຈຸບັນ.</p>
+            <p>ໂດຍແນໃສ່ແຜນການຈັດຕັ້ງໂຄງການສ້າງກິດຈະກໍາໃຫ້ຄວາມຮູ້ແກ່ນັກຮຽນເພື່ອປູກຈິດສໍານຶກໃນການຮັກສາສິ່ງແວດລ້ອມ ແລະ ຈັດຕັ້ງລະບົບການຈັດການຂີ້ເຫຍື້ອພາຍໃນໂຮງຮຽນໃຫ້ມີປະສິດທິພາບ ແລະ ເກີດຜົນປະໂຫຍດສູງສຸດ.</p>
+            <h4 class="title-section"><span class="fg-success">ເປົ້າໝາຍຂອງ</span> Eco-Growth Laos</h4>
+            <p>ຈາກສະຖານະການດັ່ງກ່າວ, ພວກເຮົາໄວໜຸ່ມຈຶ່ງສົນໃຈປະກອບສ່ວນແກ້ໄຂບັນຫາດັ່ງກ່າວໂດຍນຳໃຊ້ລະບົບເຕັກໂນໂລຊີບັນທຶກເກັບກຳຂໍ້ມູນຂອງຜູ້ໃຊ້ເພື່ອສຳຫຼວດເຖິງສະຖານະການໃນການຈັດການ ແລະ ໃຫ້ຄວາມຮູ້ແກ່ການແຍກຂີ້ເຫຍື້ອໂດຍຜ່ານຊ່ອງທາງ “Eco-Growth“ ທີ່ໄດ້ຮັບການພັດທະນາຈາກໄວໜຸ່ມ ເພື່ອຫວັງເຖິງການປ່ຽນແປງໃນດ້ານບວກ ແລະ ປູກຈິດສຳນຶກໃຫ້ຄົນໃນສັງຄົມຮັບຮູ້ ແລະ ເຂົ້າໃຈເຖິງສະພາບການໃນປັດຈຸບັນ.</p>
+            <p>ໂດຍການນຳໃຊ້ເວັບໄຊ້ທີ່ພັດທະນາຂຶ້ນ ເພື່ອຊ່ວຍໃນການແກ້ໄຂ, ພ້ອມທັງເປັນຕົວຂັບເຄື່ອນໃຫ້ຄົນໃນສັງຄົມຫັນມາໃສ່ໃຈ ແລະ ປັບປຸງພຶດຕິກຳເດີມທີ່ເຂົາເຈົ້າເປັນຜູ້ກໍ່ໃຫ້ປ່ຽນໄປໃນທາງທີ່ດີຍິ່ງຂຶ້ນ.</p>
           </div>
           <div class="col-lg-6 py-3">
             <div class="about-img">
@@ -77,30 +80,6 @@
     <!-- team  -->
     <?php include 'OurTeam.php';?>
     <!-- end team -->
-
-    <!-- our parner -->
-    <div class="page-section">
-      <div class="container-fluid">
-        <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center text-center">
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/airbnb.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/google.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/mailchimp.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/paypal.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/stripe.png" alt="">
-          </div>
-        </div>
-      </div> <!-- .container-fluid -->
-    </div>  <!-- .page-section -->
-    <!-- end parner -->
   </main>
 
   <footer class="page-footer">

@@ -6,14 +6,14 @@
         </div>
         <div class="col-lg-4 py-4">
           <h5>ຂໍ້ມູນຕິດຕໍ່</h5>
-          <p>301 The Greenhouse, Custard Factory, London, E2 8DY.</p>
+          <p>Vientiane Capital, Laos PDR.</p>
           <p>Email: infor@ecogrowthlao.com</p>
-          <p>Phone: +856 918 260 96</p>
+          <p>Phone: +856 56 632 446</p>
         </div>
-        <div class="col-lg-4 py-4">
+        <!-- <div class="col-lg-4 py-4">
           <h5>Motto</h5>
           <p>ອະທິບາຍລາຍລະອຽດຂອງໂຄງການ</p>
-        </div>
+        </div> -->
       </div>
 
       <hr>
