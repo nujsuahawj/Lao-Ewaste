@@ -76,8 +76,7 @@
                         echo '<a href="ContenDedials?title='.$row['title'].'">'.$row['title'].'</a>';
                         ?>
                       </div>
-                      <div class="post-excerpt"><?php echo $row['detials1']; ?>
-                    </div>
+                      <div class="post-excerpt"><?php echo $row['detials1']; ?>... </div>
                     </div>
                     <div class="footer">
                       

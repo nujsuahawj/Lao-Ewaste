@@ -44,7 +44,7 @@
       <div class="container">
         <div class="text-center">
           <div class="subhead">ບໍລິການຂອງພວກເຮົາ</div>
-          <h3 class="title-section text-success">ສິ່ງເສດເຫຼືອທີ່ຮັບຖິ້ມ</h3>
+          <h3 class="title-section text-success">ປະເພດທີ່ຮັບຖິ້ມ</h3>
         </div>
 
         <div class="row justify-content-center">
@@ -143,7 +143,7 @@
       <div class="container">
         <div class="text-center">
           <div class="subhead">ບໍລິການຂອງພວກເຮົາ</div>
-          <h3 class="title-section text-success">ຈຸດຮັບຖິ້ມແຕ່ລະບອນ</h3>
+          <h3 class="title-section text-success">ຈຸດຮັບຖິ້ມ</h3>
         </div>
         <div class="owl-carousel team-carousel mt-5">
           <?php 

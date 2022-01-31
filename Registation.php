@@ -8,6 +8,9 @@
       $phone = $_POST['phone'];
       $schoolname = $_POST['schoolname'];
       $sid = $_POST['sid'];
+      $sc = $_POST['sc'];
+      $studentid = $sc.$sid;
+
       $poit = 0;
       $detials = 'ບໍ່ມີ';
 
@@ -27,11 +30,15 @@
           $errorMsg = 'inputsid';
           $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
           $_SESSION['message_type'] = 'danger';
+      }elseif(!($sc)){
+          $errorMsg = 'inputsid';
+          $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+          $_SESSION['message_type'] = 'danger';
       }
 
       if(!isset($errorMsg)){
           $sql = "insert into students(name, phone, schoolname, sid, poit, detials)
-                  values('".$name."', '".$phone."', '".$schoolname."', '".$sid."', '".$poit."', '".$detials."')";
+                  values('".$name."', '".$phone."', '".$schoolname."', '".$studentid."', '".$poit."', '".$detials."')";
           $query_run = mysqli_query($mysql_db, $sql);
 
           if($query_run)
@@ -148,8 +155,20 @@
                                           </select>
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
+                                          <div class="row">
+                                            <div class="col-lg-2">
+                                              <select class="form-control form-control-user" name="sc">
+                                                <option value="">ເລືອກ...</option>
+                                                <option value="Rschool1">Rschool1</option>
+                                                <option value="Rschool2">Rschool2</option>
+                                                <option value="Rschool3">Rschool3</option>
+                                              </select>
+                                            </div>
+                                            <div class="col-lg-10">
+                                              <input type="text" class="form-control form-control-user"
                                                 name="sid" placeholder="ID 6 ໂຕທີ່ທ່ານມັກທີສຸດແລະຈື່ງ່າຍທີ່ສຸດ...">
+                                            </div>
+                                          </div>
                                         </div>
                                         
                                         <button type="submit" name="add" class="btn btn-success btn-user btn-block">
@@ -168,28 +187,6 @@
             </div>
         </div>
       </div> <!-- .container -->
-    </div> <!-- .page-section -->
-
-    <div class="page-section">
-      <div class="container-fluid">
-        <div class="row row-cols-md-3 row-cols-lg-5 justify-content-center text-center">
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/airbnb.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/google.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/mailchimp.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/paypal.png" alt="">
-          </div>
-          <div class="py-3 px-5">
-            <img src="./assets/img/clients/stripe.png" alt="">
-          </div>
-        </div>
-      </div> <!-- .container-fluid -->
     </div> <!-- .page-section -->
   </main>
 

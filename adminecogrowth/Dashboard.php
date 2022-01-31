@@ -91,7 +91,7 @@
                                         $pitf = number_format($pit, 3, ',', '.');?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                ຈຳນວນຂີ້ເຫຍື້ອ</div>
+                                                ຈຳນວນຂີ້ເຫຍື້ອທັງໝົດ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo  $pitf; ?> kg</div>
                                         </div>
                                         <div class="col-auto">
@@ -114,7 +114,7 @@
                                         $count1 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                ຈຳນວນໂຮງຮຽນ</div>
+                                                ຈຳນວນໂຮງຮຽນທັງໝົດ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count1; ?> ໂຮງຮຽນ</div>
                                         </div>
                                         <div class="col-auto">
@@ -137,7 +137,7 @@
                                         $count2 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                ຈຳນວນນັກຮຽນ</div>
+                                                ຈຳນວນນັກຮຽນທັງໝົດ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count2; ?> ຄົນ</div>
                                         </div>
                                         <div class="col-auto">
@@ -160,7 +160,7 @@
                                         $count3 = $row['count'];?>
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                ຈຳນວນບົດຄວນ</div>
+                                                ຈຳນວນບົດຄວນທັງໝົດ</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $count3; ?> ບົດຄວນ</div>
                                         </div>
                                         <div class="col-auto">
@@ -253,6 +253,74 @@
                                     <?php }}?>
                                 </div>
                             </div>
+
+                            <!-- Color System -->
+                            <div class="row">
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-primary text-white shadow">
+                                        <div class="card-body">
+                                            Primary
+                                            <div class="text-white-50 small">#4e73df</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-success text-white shadow">
+                                        <div class="card-body">
+                                            Success
+                                            <div class="text-white-50 small">#1cc88a</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-info text-white shadow">
+                                        <div class="card-body">
+                                            Info
+                                            <div class="text-white-50 small">#36b9cc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                            Warning
+                                            <div class="text-white-50 small">#f6c23e</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-danger text-white shadow">
+                                        <div class="card-body">
+                                            Danger
+                                            <div class="text-white-50 small">#e74a3b</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-secondary text-white shadow">
+                                        <div class="card-body">
+                                            Secondary
+                                            <div class="text-white-50 small">#858796</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-lg-6 mb-4">
+                                    <div class="card bg-light text-black shadow">
+                                        <div class="card-body">
+                                            Light
+                                            <div class="text-black-50 small">#f8f9fc</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-dark text-white shadow">
+                                        <div class="card-body">
+                                            Dark
+                                            <div class="text-white-50 small">#5a5c69</div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
                         </div>
 
                         <!-- Pie Chart -->
@@ -315,11 +383,11 @@
                                         $ss1per3f = number_format($ss1per3,2);
                                     ?>
 
-                                    <div class="card bg-success border-left-warning shadow h-100 py-2">
+                                    <div class="card border-left-warning border-bottom-warning shadow h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn1 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per1kf ?> kg</div>
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><?php echo $ssn1 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per1kf ?> kg</div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per1f; ?>%</div>
@@ -339,11 +407,11 @@
                                             </div>
                                         </div>
                                     </div><br>
-                                    <div class="card bg-info border-left-primary shadow h-100 py-2">
+                                    <div class="card border-left-primary border-bottom-primary shadow h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn2 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per2kf ?> kg </div>
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?php echo $ssn2 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per2kf ?> kg </div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per2f; ?>%</div>
@@ -363,11 +431,11 @@
                                             </div>
                                         </div>
                                     </div><br>
-                                    <div class="card bg-primary border-left-danger shadow h-100 py-2">
+                                    <div class="card border-left-danger border-bottom-danger shadow h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-light text-uppercase mb-1"><?php echo $ssn3 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per3kf ?> kg   </div>
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><?php echo $ssn3 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per3kf ?> kg   </div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per3f; ?>%</div>
