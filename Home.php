@@ -51,70 +51,88 @@
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/glass.png" alt="">
+                <img src="./assets/img/icons/8.jpg" alt="">
               </div>
-              <h5>ຈອກແກ້ວ (ຄວບແກ້ວ)</h5>
+              <h5>ແກ້ວເບຍ(beer bottle)</h5>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/water-bottle.png" alt="ຕຸກນ້ຳ ປຣາສະຕິກ">
+                <img src="./assets/img/icons/6.jpg" alt="ຕຸກນ້ຳ ປຣາສະຕິກ">
               </div>
-              <h5>ຕຸກນ້ຳ (ປຣາສະຕິກ)</h5>
+              <h5>ກະປ໋ອງPepsi, Coke, ເບຍ (Pepsi, Coke, Beer can)</h5>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/aluminum.png" alt="ກະປ່ອງ">
+                <img src="./assets/img/icons/5.jpg" alt="ກະປ່ອງ">
               </div>
-              <h5>ກະປ່ອງ (ອາລູມີນຽມ)</h5>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
-            <div class="text-center">
-              <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/paper.png" alt="ເສບເຈ້ຍ">
-              </div>
-              <h5>ເສບເຈ້ຍ (ປື້ມ)</h5>
+              <h5>ກະປ໋໋ອງຊະນິດອື່ນໆ(other can)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/vitamilk.png" alt="vitamilk">
+                <img src="./assets/img/icons/1.jpg" alt="ເສບເຈ້ຍ">
               </div>
-              <h5>ຄວບນົມ (vitamilk)</h5>
+              <h5>ແກ້ວອື່ນໆ(other glass)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/bage.png" alt="bage">
+                <img src="./assets/img/icons/2.jpg" alt="vitamilk">
               </div>
-              <h5>ເເກັບໃສ່ເຄື່ອງ (ເກັບເຈ້ຍ)</h5>
+              <h5>ຕຸກນໍ້າປລາສ໌ຕິກ(plastic bottle)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/phone.png" alt="phone">
+                <img src="./assets/img/icons/9.jpg" alt="bage">
               </div>
-              <h5>ໂທລະສັບ (telephone)</h5>
+              <h5>ປລາສ໌ຕິກຊະນິດອື່ນໆ(other plastic)</h5>
             </div>
           </div>
 
           <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
             <div class="text-center">
               <div class="img-fluid mb-4">
-                <img src="./assets/img/icons/cable.png" alt="cable">
+                <img src="./assets/img/icons/7.jpg" alt="phone">
               </div>
-              <h5>ສາຍ cable (ສາຍສາກ, ສາຍໄຟ)</h5>
+              <h5>ເຈ້ຍລວມ(mixed paper)</h5>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+            <div class="text-center">
+              <div class="img-fluid mb-4">
+                <img src="./assets/img/icons/4.jpg" alt="cable">
+              </div>
+              <h5>ເຈ້ຍ A4 ຫຼື ປື້ມ(A4 paper or book)</h5>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+            <div class="text-center">
+              <div class="img-fluid mb-4">
+                <img src="./assets/img/icons/3.jpg" alt="cable">
+              </div>
+              <h5>ເຈ້ຍແກັດ(cardboard)</h5>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 col-xl-3 py-3 mb-3">
+            <div class="text-center">
+              <div class="img-fluid mb-4">
+                <img src="./assets/img/icons/10.jpg" alt="cable">
+              </div>
+              <h5>ອື່ນໆອີກຫຼາຍໆຢ່າງ</h5>
             </div>
           </div>
 
