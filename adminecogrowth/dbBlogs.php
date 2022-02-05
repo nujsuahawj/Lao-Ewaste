@@ -8,13 +8,13 @@ if(isset($_POST['start'])){
 		
 		$searchData = $_POST['search']['value'];//รับข้อมูล ช่อง Search
 		
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "laos-ewaste";//ชื่อฐานข้อมูล
+		define('DB_SERVER', 'localhost');
+		define('DB_USERNAME', 'root');
+		define('DB_PASSWORD', '');
+		define('DB_NAME', 'laos-ewaste');
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Attempt to connect to MySQL database
+		$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);//ชื่อฐานข้อมูล
 		
 		// Check connection
 		if (!$conn) {

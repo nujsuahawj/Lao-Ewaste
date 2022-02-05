@@ -8,13 +8,13 @@ if(isset($_POST['start'])){
 		
 		$searchData = $_POST['search']['value'];//รับข้อมูล ช่อง Search
 		
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "laos-ewaste";//ชื่อฐานข้อมูล
+		define('DB_SERVER', 'localhost');
+		define('DB_USERNAME', 'root');
+		define('DB_PASSWORD', '');
+		define('DB_NAME', 'laos-ewaste');
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Attempt to connect to MySQL database
+		$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);//ชื่อฐานข้อมูล
 		
 		// Check connection
 		if (!$conn) {
@@ -38,20 +38,42 @@ if(isset($_POST['start'])){
 		//Query ข้อมูลที่จะแสดงใน DataTable
 		$sql = "SELECT * FROM students $searchValueResult LIMIT $start , $length";
 		$result = mysqli_query($conn, $sql);
-		$p = 10;
 		
 		$data = array();
 
 		if (mysqli_num_rows($result) > 0) {
 
 		  while($row = mysqli_fetch_assoc($result)) {
+			  $p1 = $row['poit1'];
+			  $p2 = $row['poit2'];
+			  $p3 = $row['poit3'];
+			  $p4 = $row['poit4'];
+			  $p5 = $row['poit5'];
+			  $p6 = $row['poit6'];
+			  $p7 = $row['poit7'];
+			  $p8 = $row['poit8'];
+			  $p9 = $row['poit9'];
+
+			  $sp1 = $p1*0.7/100;
+			  $sp2 = $p2*0.08/100;
+			  $sp3 = $p3*0.07/100;
+			  $sp4 = $p4*0.06/100;
+			  $sp5 = $p5*0.03/100;
+			  $sp6 = $p6*0.02/100;
+			  $sp7 = $p7*0.01/100;
+			  $sp8 = $p8*0.01/100;
+			  $sp9 = $p9*0.01/100;
+
+			  $ssp = $sp1 + $sp2 + $sp3 + $sp4 + $sp5 + $sp6 + $sp7 + $sp8 +$sp9;
+
+			  $sspf = number_format($ssp, 3, ',', '.');
 
 			    $data[] = array(
 					'name'=> $row['name'],
 					'phone'=> $row['phone'],
 					'schoolname'=> $row['schoolname'],
-                    'poit'=> $row['poit'] * $p,
                     'sid'=> $row['sid'],
+					'poit'=> $sspf,
 				);
 		  }
 		}

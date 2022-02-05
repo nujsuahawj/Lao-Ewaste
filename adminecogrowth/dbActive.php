@@ -8,13 +8,13 @@ if(isset($_POST['start'])){
 		
 		$searchData = $_POST['search']['value'];//รับข้อมูล ช่อง Search
 		
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "laos-ewaste";//ชื่อฐานข้อมูล
+		define('DB_SERVER', 'localhost');
+		define('DB_USERNAME', 'root');
+		define('DB_PASSWORD', '');
+		define('DB_NAME', 'laos-ewaste');
 
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
+		// Attempt to connect to MySQL database
+		$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);//ชื่อฐานข้อมูล
 		
 		// Check connection
 		if (!$conn) {
@@ -27,7 +27,7 @@ if(isset($_POST['start'])){
 		
 		//Query กรณีมีการค้นหาข้อมูล
 		if($searchValueData != ''){
-		   $searchValueResult = " WHERE name LIKE '%".$searchValueData."%'  OR phone LIKE '%".$searchValueData."%' OR schoolname LIKE '%".$searchValueData."%' ";
+		   $searchValueResult = " WHERE studentname LIKE '%".$searchValueData."%'  OR schoolname LIKE '%".$searchValueData."%' OR detials LIKE '%".$searchValueData."%' ";
 		}
 		
 		//Query นับจำนวนข้อมูลทั้งหมด
@@ -38,18 +38,31 @@ if(isset($_POST['start'])){
 		//Query ข้อมูลที่จะแสดงใน DataTable
 		$sql = "SELECT * FROM transictions $searchValueResult LIMIT $start , $length";
 		$result = mysqli_query($conn, $sql);
-		$g = 'g';
 		
 		$data = array();
 
 		if (mysqli_num_rows($result) > 0) {
 
 		  while($row = mysqli_fetch_assoc($result)) {
+				$vnsiction = '';
+				$nsiction = $row['siction'];
+				if($nsiction == 45){
+					$vnsiction = 'masks-screened';
+				}
+				if($nsiction == 55){
+					$vnsiction = 'cotton bag';
+				}
+				if($nsiction == 105){
+					$vnsiction = 'train ticket(103.000k-Vangvieng)';
+				}
+				if($nsiction == 200){
+					$vnsiction = 'train ticket(198.000k-LPB)';
+				}
 
 			    $data[] = array(
 					'studentname'=> $row['studentname'],
 					'schoolname'=> $row['schoolname'],
-                    'siction'=> $row['siction']. $g,
+                    'siction'=> $vnsiction,
                     'detials'=> $row['detials'],
                     'updated'=> $row['created_at'],
 				);

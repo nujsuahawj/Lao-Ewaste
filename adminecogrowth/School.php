@@ -3,7 +3,7 @@
 	session_start();
 
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
-		header('location: Home.php');
+		header('location: Login');
 		exit;
 	}
     // Include config file
@@ -76,10 +76,11 @@
         $imgTmp = $_FILES['image']['tmp_name'];
         $imgSize = $_FILES['image']['size'];
 
-        if(!($fname)){
-            $nerrorMsg = 'inputnschoolsname';
-            // header("Location:School.php");
-        }elseif(!($lname)){
+        // if(!($fname)){
+        //     $nerrorMsg = 'inputnschoolsname';
+        //     header("Location:School.php");
+        // }
+        if(!($lname)){
             $errorMsg = 'inputdetials';
             // header("Location:School.php");
         }else{
@@ -354,7 +355,7 @@
                             </div>
                             <div class="form-group">
                                 <div>
-                                    <input type="text" id="schoolname" class="form-control input-lg" name="schoolname" placeholder="ຊື່ໂຮງຮຽນ...">
+                                    <input type="hidden" id="schoolname" class="form-control input-lg" name="schoolname" placeholder="ຊື່ໂຮງຮຽນ...">
                                 </div>
                             </div>
                             <div class="form-group">

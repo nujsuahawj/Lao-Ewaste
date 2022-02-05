@@ -2,7 +2,7 @@
     session_start();
 
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
-		header('location: Home.php');
+		header('location: Login');
 		exit;
 	}
     // Include config file
@@ -34,19 +34,58 @@
         }
 
         if(!isset($errorMsg)){
-            $query = "insert into transictions(studentname, schoolname, siction, detials)
-            values('".$studentname."', '".$schoolname."', '".$siction."', '".$detials."')";
-            $query_run = mysqli_query($mysql_db, $query);
 
-            if($query_run)
-            {
-                $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
-                $_SESSION['message_type'] = 'success';
-                // header('Location: School.php');
+            $sql = "SELECT * FROM students WHERE id = '$studentname' ";
+		    $result = mysqli_query($mysql_db, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    $snames= $row['name'];
+                    $p1 = $row['poit1'];
+                    $p2 = $row['poit2'];
+                    $p3 = $row['poit3'];
+                    $p4 = $row['poit4'];
+                    $p5 = $row['poit5'];
+                    $p6 = $row['poit6'];
+                    $p7 = $row['poit7'];
+                    $p8 = $row['poit8'];
+                    $p9 = $row['poit9'];
+
+                    $sp1 = $p1*0.7/100;
+                    $sp2 = $p2*0.08/100;
+                    $sp3 = $p3*0.07/100;
+                    $sp4 = $p4*0.06/100;
+                    $sp5 = $p5*0.03/100;
+                    $sp6 = $p6*0.02/100;
+                    $sp7 = $p7*0.01/100;
+                    $sp8 = $p8*0.01/100;
+                    $sp9 = $p9*0.01/100;
+
+                    $ssp = $sp1 + $sp2 + $sp3 + $sp4 + $sp5 + $sp6 + $sp7 + $sp8 + $sp9;
+                    
+                }
             }
-            else
-            {
-                $errorMsg = 'Error '.mysqli_error($mysql_db);
+
+            if($siction >= $ssp){
+                $_SESSION['message'] = 'ບໍ່ສາມາດແລກໄດ້';
+                $_SESSION['message_type'] = 'danger';
+            }
+            if($ssp > $siction){
+                $query = "insert into transictions(studentname, schoolname, siction, detials)
+                values('".$snames."', '".$schoolname."', '".$siction."', '".$detials."')";
+                $query_run = mysqli_query($mysql_db, $query);
+
+                if($ssp > 0){
+                    $spp = $ssp - $siction ;
+                    $setpro = $spp*100/0.7;
+                    $query1 = "UPDATE students SET poit1='$setpro', poit2=0, poit3=0, poit4=0, poit5=0, poit6=0, poit7=0, poit8=0, poit9=0 WHERE id='$studentname'  ";
+                    $query_run = mysqli_query($mysql_db, $query1);
+                    if($query_run){
+                        $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
+                        $_SESSION['message_type'] = 'success';
+                    }else{
+                        $errorMsg = 'Error '.mysqli_error($mysql_db);
+                    }
+                }
             }
         }
     }
@@ -144,7 +183,7 @@
                                         <tr>
                                             <th>ຊື່ນັກຮຽນ</th>
                                             <th>ຊື່ໂຮງຮຽນ</th>
-                                            <th>ແລກຫຍັງ</th>
+                                            <th>ລາງວັນ</th>
                                             <th>ເຄືອນໄຫວໂດຍ</th>
                                             <th>ເວລາ</th>
                                         </tr>
@@ -204,7 +243,8 @@
                                         $query = "SELECT * FROM students";
                                         $result_tasks = mysqli_query($mysql_db, $query); 
                                         while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                            <option value="<?php echo $row['schoolname']; ?>"><?php echo $row['name']; ?></option>
+                                            <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                            <option value=""></option>
                                     <?php } ?>
                                 </select>
                             </div>
@@ -225,10 +265,13 @@
                         <div class="form-group">
                             <div>
                                 <select class="form-control" name="siction" id="single2" style="width:100%">
-                                    <option >ຊອກຫາ ຂອງແລກ...</option>
-                                    <option value="ເເປັກຊີ">ເເປັກຊີ</option>
-                                    <option value="ກາເເຟ">ກາເເຟ</option>
-                                    <option value="ນໍ້ານົມ">ນໍ້ານົມ</option>
+                                    <option value="">ຊອກຫາລາງວັນ...</option>
+                                    <option value="45">cotton pencil case(miniso,...)</option>
+                                    <option value="45">masks-screened</option>
+                                    <option value="45">efilled bottle of water(miniso, dmart-screened logo)</option>
+                                    <option value="55">cotton bag</option>
+                                    <option value="105">train ticket(103.000k-Vangvieng)</option>
+                                    <option value="200">train ticket(198.000k-LPB)</option>
                                 </select>
                             </div>
                         </div>

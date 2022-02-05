@@ -2,7 +2,7 @@
     session_start();
 
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
-		header('location: Home.php');
+		header('location: Login');
 		exit;
 	}
     // Include config file
@@ -11,36 +11,52 @@
        // edited
        if (isset($_POST['edited'])) {
         $name = $_POST['name'];
-        $schoolname = $_POST['schoolname'];
-        $poit = $_POST['poit'];
-        $detials = $_POST['detials'];
-        $create = $_POST['create'];
+        $pp = $_POST['pp'];
+        $sp = $_POST['sp'];
 
         if(!($name)){
             $errorMsg = 'inputname';
             $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
             $_SESSION['message_type'] = 'danger';
-        }elseif(!($poit)){
-            $errorMsg = 'inputphone';
-            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
-            $_SESSION['message_type'] = 'danger';
-        }elseif(!($schoolname)){
+        }elseif(!($pp)){
             $errorMsg = 'inputschoolname';
             $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
             $_SESSION['message_type'] = 'danger';
-        }elseif(!($detials)){
-            $errorMsg = 'inputsid';
-            $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
-            $_SESSION['message_type'] = 'danger';
-        }elseif(!($create)){
-            $errorMsg = 'inputsid';
+        }elseif(!($sp)){
+            $errorMsg = 'inputschoolname';
             $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
             $_SESSION['message_type'] = 'danger';
         }
 
         if(!isset($errorMsg)){
-            $query = "UPDATE students SET schoolname='$schoolname', poit='$poit', detials='$detials', created_at='$create' WHERE id='$name'  ";
-            $query_run = mysqli_query($mysql_db, $query);
+            if($pp== 'sp1'){
+                $query = "UPDATE students SET poit1='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp2'){
+                $query = "UPDATE students SET poit2='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp3'){
+                $query = "UPDATE students SET poit3='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp4'){
+                $query = "UPDATE students SET poit4='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp5'){
+                $query = "UPDATE students SET poit5='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp6'){
+                $query = "UPDATE students SET poit6='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp7'){
+                $query = "UPDATE students SET poit7='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp8'){
+                $query = "UPDATE students SET poit8='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }elseif($pp == 'sp9'){
+                $query = "UPDATE students SET poit9='$sp' WHERE id='$name'  ";
+                $query_run = mysqli_query($mysql_db, $query);
+            }
 
             if($query_run)
             {
@@ -147,10 +163,15 @@
                                     <thead>
                                         <tr>
                                             <th>ຊື່ນັກຮຽນ</th>
-                                            <th>ຊື່ໂຮງຮຽນ</th>
-                                            <th>ຈຳນວນ g</th>
-                                            <th>ລາຍລະອຽດ</th>
-                                            <th>ວັນທີ່ມາຖິ້ມ</th>
+                                            <th>aluminium</th>
+                                            <th>ເຈ້ຍ A4 ຫຼື ປື້ມ</th>
+                                            <th>ຕຸກນໍ້າປຣາດສຕິກ</th>
+                                            <th>ເຈ້ຍແກັດ</th>
+                                            <th>ປຣາດສຕິອື່ນໆ</th>
+                                            <th>ເຈ້ຍລວມ</th>
+                                            <th>metal</th>
+                                            <th>ແກ້ວເບຍ</th>
+                                            <th>ແກ້ວອື່ນໆ</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -215,30 +236,24 @@
                         </div>
                         <div class="form-group">
                             <div>
-                            <select class="form-control" name="schoolname">
-                                    <option selected>ໂຮງຮຽນ...</option>
-                                    <?php 
-                                    $query = "SELECT * FROM schools";
-                                    $result_tasks = mysqli_query($mysql_db, $query); 
-                                    while($row = mysqli_fetch_assoc($result_tasks)) { ?>
-                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['schoolname']; ?></option>
-                                    <?php } ?>
-                            </select>
+                                <select class="form-control form-control-user" name="pp">
+                                        <option value="">ເລືອກປະເພດ...</option>
+                                        <option value="sp1">aluminium</option>
+                                        <option value="sp2">ເຈ້ຍ A4 ຫຼື ປື້ມ</option>
+                                        <option value="sp3">ຕຸກນໍ້າປຣາດສຕິກ</option>
+                                        <option value="sp4">ເຈ້ຍແກັດ</option>
+                                        <option value="sp5">ປຣາດສຕິອື່ນໆ</option>
+                                        <option value="sp6">ເຈ້ຍລວມ</option>
+                                        <option value="sp7">metal</option>
+                                        <option value="sp8">ແກ້ວເບຍ</option>
+                                        <option value="sp9">ແກ້ວອື່ນໆ</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div>
-                                <input type="number" class="form-control form-control-user" name="poit" placeholder="ຈຳນວນ g...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="text" class="form-control form-control-user" name="detials" placeholder="ລາຍລະອຽດ...">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div>
-                                <input type="datetime-local" class="form-control form-control-user" name="create" placeholder="ລາຍລະອຽດ...">
+                                <input type="number" class="form-control input-lg" name="sp" placeholder="ຈຳນວນ g...">
                             </div>
                         </div>
                         <!-- Modal footer -->
@@ -290,10 +305,15 @@
 					"ajax": "dbEwaste.php",
 					'columns': [
                             { data: 'name' },
-                            { data: 'schoolname' },
-                            { data: 'poit' },
-                            { data: 'detials' },
-                            { data: 'updated' },
+                            { data: 'poit1' },
+                            { data: 'poit2' },
+                            { data: 'poit3' },
+                            { data: 'poit4' },
+                            { data: 'poit5' },
+                            { data: 'poit6' },
+                            { data: 'poit7' },
+                            { data: 'poit8' },
+                            { data: 'poit9' },
 						],
 				} );
 			} );

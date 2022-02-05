@@ -2,7 +2,7 @@
     session_start();
 
 	if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] !== false) {
-		header('location: Home.php');
+		header('location: Login');
 		exit;
 	}
     // Include config file
@@ -13,8 +13,18 @@
             $phone = $_POST['numberphone'];
             $schoolname = $_POST['schoolname'];
             $sid = $_POST['sid'];
-            $poit = 0;
-            $detials = 'ບໍ່ມີ';
+            $sc = $_POST['sc'];
+            $studentid = $sc.$sid;
+
+            $poit1 = 0;
+            $poit2 = 0;
+            $poit3 = 0;
+            $poit4 = 0;
+            $poit5 = 0;
+            $poit6 = 0;
+            $poit7 = 0;
+            $poit8 = 0;
+            $poit9 = 0;
     
             if(!($name)){
                 $errorMsg = 'inputname';
@@ -32,11 +42,15 @@
                 $errorMsg = 'inputsid';
                 $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
                 $_SESSION['message_type'] = 'danger';
+            }elseif(!($sc)){
+                $errorMsg = 'inputsid';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
     
             if(!isset($errorMsg)){
-                  $sql = "insert into students(name, phone, schoolname, sid, poit, detials)
-                          values('".$name."', '".$phone."', '".$schoolname."', '".$sid."', '".$poit."', '".$detials."')";
+                  $sql = "insert into students(name, phone, schoolname, sid, poit1, poit2, poit3, poit4, poit5, poit6, poit7, poit8, poit9)
+                          values('".$name."', '".$phone."', '".$schoolname."', '".$studentid."', '".$poit1."', '".$poit2."', '".$poit3."', '".$poit4."', '".$poit5."', '".$poit6."', '".$poit7."', '".$poit8."', '".$poit9."')";
                 $result = mysqli_query($mysql_db, $sql);
                 if($result){
                     $_SESSION['message'] = 'ເພີ່ມຂໍ້ມູນແລ້ວ';
@@ -79,6 +93,8 @@
             $phone = $_POST['numberphone'];
             $schoolname = $_POST['schoolname'];
             $sid = $_POST['sid'];
+            $esc = $_POST['esc'];
+            $studentide = $esc.$sid;
     
             if(!($name)){
                 $errorMsg = 'inputname';
@@ -96,10 +112,14 @@
                 $errorMsg = 'inputsid';
                 $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
                 $_SESSION['message_type'] = 'danger';
+            }elseif(!($esc)){
+                $errorMsg = 'inputsid';
+                $_SESSION['message'] = 'ປ້ອນຂໍ້ມູນໃຫ້ຄົບ';
+                $_SESSION['message_type'] = 'danger';
             }
     
             if(!isset($errorMsg)){
-                $query = "UPDATE students SET name='$name', phone='$phone', schoolname='$schoolname', sid='$sid' WHERE phone='$phone'  ";
+                $query = "UPDATE students SET name='$name', phone='$phone', schoolname='$schoolname', sid='$studentide' WHERE phone='$phone'  ";
                 $query_run = mysqli_query($mysql_db, $query);
 
                 if($query_run)
@@ -214,8 +234,8 @@
                                             <th>ຊື່</th>
                                             <th>ເບີໂທ</th>
                                             <th>ໂຮງຮຽນ</th>
-                                            <th>ຄະແນນ</th>
                                             <th>ID</th>
+                                            <th>ຄະແນນ</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -289,8 +309,18 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div>
-                                <input type="password" class="form-control form-control-user" name="sid" placeholder="ID 6 ໂຕ...">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <select class="form-control form-control-user" name="sc">
+                                        <option value="">ເລືອກ...</option>
+                                        <option value="NRD">NRD</option>
+                                        <option value="VRV">VRV</option>
+                                        <option value="LFIV">LFIV</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control form-control-user" name="sid" placeholder="ID 6 ໂຕ...">
+                                </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
@@ -388,8 +418,18 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div>
-                                <input type="password" class="form-control form-control-user" name="sid" placeholder="ID 6 ໂຕ...">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <select class="form-control form-control-user" name="esc">
+                                        <option value="">ເລືອກ...</option>
+                                        <option value="NRD">NRD</option>
+                                        <option value="VRV">VRV</option>
+                                        <option value="LFIV">LFIV</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-10">
+                                    <input type="text" class="form-control form-control-user" name="sid" placeholder="ID 6 ໂຕ...">
+                                </div>
                             </div>
                         </div>
                         <!-- Modal footer -->
@@ -433,8 +473,8 @@
                             { data: 'name' },
                             { data: 'phone' },
                             { data: 'schoolname' },
-                            { data: 'poit' },
                             { data: 'sid' },
+                            { data: 'poit' },
 						],
 				} );
 			} );

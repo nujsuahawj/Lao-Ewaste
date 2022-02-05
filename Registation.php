@@ -11,8 +11,15 @@
       $sc = $_POST['sc'];
       $studentid = $sc.$sid;
 
-      $poit = 0;
-      $detials = 'ບໍ່ມີ';
+      $poit1 = 0;
+      $poit2 = 0;
+      $poit3 = 0;
+      $poit4 = 0;
+      $poit5 = 0;
+      $poit6 = 0;
+      $poit7 = 0;
+      $poit8 = 0;
+      $poit9 = 0;
 
       if(!($name)){
           $errorMsg = 'inputname';
@@ -37,8 +44,8 @@
       }
 
       if(!isset($errorMsg)){
-          $sql = "insert into students(name, phone, schoolname, sid, poit, detials)
-                  values('".$name."', '".$phone."', '".$schoolname."', '".$studentid."', '".$poit."', '".$detials."')";
+          $sql = "insert into students(name, phone, schoolname, sid, poit1, poit2, poit3, poit4, poit5, poit6, poit7, poit8, poit9)
+                  values('".$name."', '".$phone."', '".$schoolname."', '".$studentid."', '".$poit1."', '".$poit2."', '".$poit3."', '".$poit4."', '".$poit5."', '".$poit6."', '".$poit7."', '".$poit8."', '".$poit9."')";
           $query_run = mysqli_query($mysql_db, $sql);
 
           if($query_run)
@@ -159,9 +166,9 @@
                                             <div class="col-lg-2">
                                               <select class="form-control form-control-user" name="sc">
                                                 <option value="">ເລືອກ...</option>
-                                                <option value="Rschool1">Rschool1</option>
-                                                <option value="Rschool2">Rschool2</option>
-                                                <option value="Rschool3">Rschool3</option>
+                                                <option value="NRD">NRD</option>
+                                                <option value="NRD">VRV</option>
+                                                <option value="NRD">LFIV</option>
                                               </select>
                                             </div>
                                             <div class="col-lg-10">
