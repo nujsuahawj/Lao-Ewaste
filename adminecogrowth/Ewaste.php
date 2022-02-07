@@ -28,33 +28,58 @@
             $_SESSION['message_type'] = 'danger';
         }
 
+        $sql = "SELECT * FROM students WHERE id = '$name' ";
+		    $result = mysqli_query($mysql_db, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while($row = mysqli_fetch_assoc($result)) {
+                    $p1 = $row['poit1'];
+                    $p2 = $row['poit2'];
+                    $p3 = $row['poit3'];
+                    $p4 = $row['poit4'];
+                    $p5 = $row['poit5'];
+                    $p6 = $row['poit6'];
+                    $p7 = $row['poit7'];
+                    $p8 = $row['poit8'];
+                    $p9 = $row['poit9'];
+                }
+            }
+
         if(!isset($errorMsg)){
             if($pp== 'sp1'){
-                $query = "UPDATE students SET poit1='$sp' WHERE id='$name'  ";
+                $smppp = $p1+$sp;
+                $query = "UPDATE students SET poit1='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp2'){
-                $query = "UPDATE students SET poit2='$sp' WHERE id='$name'  ";
+                $smppp = $p2+$sp;
+                $query = "UPDATE students SET poit2='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp3'){
-                $query = "UPDATE students SET poit3='$sp' WHERE id='$name'  ";
+                $smppp = $p3+$sp;
+                $query = "UPDATE students SET poit3='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp4'){
-                $query = "UPDATE students SET poit4='$sp' WHERE id='$name'  ";
+                $smppp = $p4+$sp;
+                $query = "UPDATE students SET poit4='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp5'){
-                $query = "UPDATE students SET poit5='$sp' WHERE id='$name'  ";
+                $smppp = $p5+$sp;
+                $query = "UPDATE students SET poit5='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp6'){
-                $query = "UPDATE students SET poit6='$sp' WHERE id='$name'  ";
+                $smppp = $p6+$sp;
+                $query = "UPDATE students SET poit6='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp7'){
-                $query = "UPDATE students SET poit7='$sp' WHERE id='$name'  ";
+                $smppp = $p7+$sp;
+                $query = "UPDATE students SET poit7='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp8'){
-                $query = "UPDATE students SET poit8='$sp' WHERE id='$name'  ";
+                $smppp = $p8+$sp;
+                $query = "UPDATE students SET poit8='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }elseif($pp == 'sp9'){
-                $query = "UPDATE students SET poit9='$sp' WHERE id='$name'  ";
+                $smppp = $p9+$sp;
+                $query = "UPDATE students SET poit9='$smppp' WHERE id='$name'  ";
                 $query_run = mysqli_query($mysql_db, $query);
             }
 

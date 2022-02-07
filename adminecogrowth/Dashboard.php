@@ -265,71 +265,104 @@
                             </div>
 
                             <!-- Color System -->
+                            <?php 
+                                        require_once('db.php');
+                                        $results1 = mysqli_query($mysql_db, "SELECT SUM(poit1) AS value_sum1, SUM(poit2) AS value_sum2, SUM(poit3) AS value_sum3, SUM(poit4) AS value_sum4, SUM(poit5) AS value_sum5, SUM(poit6) AS value_sum6, SUM(poit7) AS value_sum7, SUM(poit8) AS value_sum8, SUM(poit9) AS value_sum9 FROM students ");
+                                        $row = mysqli_fetch_array($results1);
+                                        $ss1 = $row['value_sum1'];
+                                        $ss2 = $row['value_sum2'];
+                                        $ss3 = $row['value_sum3'];
+                                        $ss4 = $row['value_sum4'];
+                                        $ss5 = $row['value_sum5'];
+                                        $ss6 = $row['value_sum6'];
+                                        $ss7 = $row['value_sum7'];
+                                        $ss8 = $row['value_sum8'];
+                                        $ss9 = $row['value_sum9'];
+
+                                        $ssfm1 = number_format($ss1,3, ',', '.');
+                                        $ssfm2 = number_format($ss2,3, ',', '.');
+                                        $ssfm3 = number_format($ss3,3, ',', '.');
+                                        $ssfm4 = number_format($ss4,3, ',', '.');
+                                        $ssfm5 = number_format($ss5,3, ',', '.');
+                                        $ssfm6 = number_format($ss6,3, ',', '.');
+                                        $ssfm7 = number_format($ss7,3, ',', '.');
+                                        $ssfm8 = number_format($ss8,3, ',', '.');
+                                        $ssfm9 = number_format($ss9,3, ',', '.');
+                                        $kilog= "Kg";
+                            ?>
                             <div class="row">
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
-                                            Primary
-                                            <div class="text-white-50 small">#4e73df</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-success text-white shadow">
-                                        <div class="card-body">
-                                            Success
-                                            <div class="text-white-50 small">#1cc88a</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-info text-white shadow">
-                                        <div class="card-body">
-                                            Info
-                                            <div class="text-white-50 small">#36b9cc</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-warning text-white shadow">
-                                        <div class="card-body">
-                                            Warning
-                                            <div class="text-white-50 small">#f6c23e</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-danger text-white shadow">
-                                        <div class="card-body">
-                                            Danger
-                                            <div class="text-white-50 small">#e74a3b</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 mb-4">
-                                    <div class="card bg-secondary text-white shadow">
-                                        <div class="card-body">
-                                            Secondary
-                                            <div class="text-white-50 small">#858796</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div class="col-lg-6 mb-4">
-                                    <div class="card bg-light text-black shadow">
-                                        <div class="card-body">
-                                            Light
-                                            <div class="text-black-50 small">#f8f9fc</div>
+                                            ປະເພດ aluminium
+                                            <div class="text-white-50 small"><?php echo $ssfm1.$kilog; ?></div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 mb-4">
                                     <div class="card bg-dark text-white shadow">
                                         <div class="card-body">
-                                            Dark
-                                            <div class="text-white-50 small">#5a5c69</div>
+                                            ປະເພດ ເຈ້ຍ A4 ຫຼື ປື້ມ
+                                            <div class="text-white-50 small"><?php echo $ssfm2.$kilog; ?></div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-info text-white shadow">
+                                        <div class="card-body">
+                                         ປະເພດ ຕຸກນໍ້າປຣາດສຕິກ
+                                            <div class="text-white-50 small"><?php echo $ssfm3.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-light text-black shadow">
+                                        <div class="card-body">
+                                            ປະເພດ metal
+                                            <div class="text-black-50 small"><?php echo $ssfm7.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-danger text-white shadow">
+                                        <div class="card-body">
+                                            ປະເພດ ປຣາດສຕິອື່ນໆ
+                                            <div class="text-white-50 small"><?php echo $ssfm5.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-secondary text-white shadow">
+                                        <div class="card-body">
+                                            ປະເພດ ເຈ້ຍລວມ
+                                            <div class="text-white-50 small"><?php echo $ssfm6.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-warning text-white shadow">
+                                        <div class="card-body">
+                                             ປະເພດ   ເຈ້ຍແກັດ
+                                            <div class="text-white-50 small"><?php echo $ssfm4.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-dark text-white shadow">
+                                        <div class="card-body">
+                                            ປະເພດ ແກ້ວເບຍ
+                                            <div class="text-white-50 small"><?php echo $ssfm8.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 mb-4">
+                                    <div class="card bg-success dark text-white shadow">
+                                        <div class="card-body">
+                                            ປະເພດ ແກ້ວອື່ນໆ
+                                            <div class="text-white-50 small"><?php echo $ssfm9.$kilog; ?></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -360,35 +393,62 @@
 
                                     <?php 
                                         require_once('db.php');
-                                        $results1 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum1 FROM students WHERE schoolname = 'ມສ ວຽນຈັນ' ");
+                                        $results1 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum11, SUM(poit2) AS value_sum12, SUM(poit3) AS value_sum13, SUM(poit4) AS value_sum14, SUM(poit5) AS value_sum15, SUM(poit6) AS value_sum16, SUM(poit7) AS value_sum17, SUM(poit8) AS value_sum18, SUM(poit9) AS value_sum19 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນີຣະດາ' ");
                                         $row = mysqli_fetch_array($results1);
-                                        $ss1 = $row['value_sum1'];
+                                        $ss11 = $row['value_sum11'];
+                                        $ss12 = $row['value_sum12'];
+                                        $ss13 = $row['value_sum13'];
+                                        $ss14 = $row['value_sum14'];
+                                        $ss15 = $row['value_sum15'];
+                                        $ss16 = $row['value_sum16'];
+                                        $ss17 = $row['value_sum17'];
+                                        $ss18 = $row['value_sum18'];
+                                        $ss19 = $row['value_sum19'];
+                                        $ssk1 = $ss11 + $ss12 + $ss13 + $ss14 + $ss15 + $ss16 + $ss17 + $ss18 +$ss19;
                                         $ssn1 = $row['schoolname'];
 
-                                        $results2 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum2 FROM students WHERE schoolname = 'ໂຮງຮຽນນາທ້າວ' ");
+                                        $results2 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum21, SUM(poit2) AS value_sum22, SUM(poit3) AS value_sum23, SUM(poit4) AS value_sum24, SUM(poit5) AS value_sum25, SUM(poit6) AS value_sum26, SUM(poit7) AS value_sum27, SUM(poit8) AS value_sum28, SUM(poit9) AS value_sum29 FROM students WHERE schoolname = 'ໂຮງຮຽນ ວິຣະຖາວອນ' ");
                                         $row = mysqli_fetch_array($results2);
-                                        $ss2 = $row['value_sum2'];
+                                        $ss21 = $row['value_sum21'];
+                                        $ss22 = $row['value_sum22'];
+                                        $ss23 = $row['value_sum23'];
+                                        $ss24 = $row['value_sum24'];
+                                        $ss25 = $row['value_sum25'];
+                                        $ss26 = $row['value_sum26'];
+                                        $ss27 = $row['value_sum27'];
+                                        $ss28 = $row['value_sum28'];
+                                        $ss29 = $row['value_sum29'];
+                                        $ssk2 = $ss21 + $ss22 + $ss23 + $ss24 + $ss25 + $ss26 + $ss27 + $ss28 +$ss29;
                                         $ssn2 = $row['schoolname'];
 
-                                        $results3 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit) AS value_sum3 FROM students WHERE schoolname = 'ລາວ ແທ້ ອັບແແດບ' ");
+                                        $results3 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum31, SUM(poit2) AS value_sum32, SUM(poit3) AS value_sum33, SUM(poit4) AS value_sum34, SUM(poit5) AS value_sum35, SUM(poit6) AS value_sum36, SUM(poit7) AS value_sum37, SUM(poit8) AS value_sum38, SUM(poit9) AS value_sum39 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນານາຊາດຝຣັງ' ");
                                         $row = mysqli_fetch_array($results3);
-                                        $ss3 = $row['value_sum3'];
+                                        $ss31 = $row['value_sum31'];
+                                        $ss32 = $row['value_sum32'];
+                                        $ss33 = $row['value_sum33'];
+                                        $ss34 = $row['value_sum34'];
+                                        $ss35 = $row['value_sum35'];
+                                        $ss36 = $row['value_sum36'];
+                                        $ss37 = $row['value_sum37'];
+                                        $ss38 = $row['value_sum38'];
+                                        $ss39 = $row['value_sum39'];
+                                        $ssk3 = $ss31 + $ss32 + $ss33 + $ss34 + $ss35 + $ss36 + $ss37 + $ss38 +$ss39;
                                         $ssn3 = $row['schoolname'];
                                         
-                                        $resum = $ss1 + $ss2 + $ss3;
-                                        $ss1per1 = $ss1*100/$resum;
+                                        $resum = $ssk1 + $ssk2 + $ssk3;
+                                        $ss1per1 = $ssk1*100/$resum;
                                         $kg1 = 1000;
-                                        $ss1per1k = $ss1 / $kg1;
+                                        $ss1per1k = $ssk1 / $kg1;
                                         $ss1per1kf = number_format($ss1per1k,3, ',', '.');
                                         $ss1per1f = number_format($ss1per1,2);
 
-                                        $ss1per2 = $ss2*100/$resum;
-                                        $ss1per2k = $ss2 / $kg1;
+                                        $ss1per2 = $ssk2*100/$resum;
+                                        $ss1per2k = $ssk2 / $kg1;
                                         $ss1per2kf = number_format($ss1per2k,3, ',', '.');
                                         $ss1per2f = number_format($ss1per2,2);
 
-                                        $ss1per3 = $ss3*100/$resum;
-                                        $ss1per3k = $ss3 / $kg1;
+                                        $ss1per3 = $ssk3*100/$resum;
+                                        $ss1per3k = $ssk3 / $kg1;
                                         $ss1per3kf = number_format($ss1per3k,3, ',', '.');
                                         $ss1per3f = number_format($ss1per3,2);
                                     ?>
@@ -397,7 +457,7 @@
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><?php echo $ssn1 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per1kf ?> kg</div>
+                                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"><?php echo $ssn1 ?> ເກັບໄດ້ຈຳນວນ <?php echo $ss1per1kf ?> kg</div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per1f; ?>%</div>
@@ -421,7 +481,7 @@
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?php echo $ssn2 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per2kf ?> kg </div>
+                                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><?php echo $ssn2 ?> ເກັບໄດ້ຈຳນວນ <?php echo $ss1per2kf ?> kg </div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per2f; ?>%</div>
@@ -445,7 +505,7 @@
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
                                                 <div class="col mr-2">
-                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><?php echo $ssn3 ?> ຈຳນວນທັງໝົດ <?php echo $ss1per3kf ?> kg   </div>
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1"><?php echo $ssn3 ?> ເກັບໄດ້ຈຳນວນ <?php echo $ss1per3kf ?> kg   </div>
                                                     <div class="row no-gutters align-items-center">
                                                         <div class="col-auto">
                                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $ss1per3f; ?>%</div>
