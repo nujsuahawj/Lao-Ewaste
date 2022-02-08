@@ -259,7 +259,7 @@
                                         </h4>
                                         <div class="progress">
                                             <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent3; ?>%;"  aria-valuenow="<?php echo $snppersent3; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
-                                        </div>
+                                        </div><br>
 
                                         <h4 class="small font-weight-bold"><?php echo $snn4; ?> &nbsp; <?php echo $snsn4 ?>
                                             <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg4, 3, ',', '.') ?> Kg</span>

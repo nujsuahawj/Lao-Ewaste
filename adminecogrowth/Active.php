@@ -266,9 +266,9 @@
                             <div>
                                 <select class="form-control" name="siction" id="single2" style="width:100%">
                                     <option value="">ຊອກຫາລາງວັນ...</option>
-                                    <option value="45">cotton pencil case(miniso,...)</option>
+                                    <option value="44">cotton pencil case(miniso,...)</option>
                                     <option value="45">masks-screened</option>
-                                    <option value="45">efilled bottle of water(miniso, dmart-screened logo)</option>
+                                    <option value="46">efilled bottle of water(miniso, dmart-screened logo)</option>
                                     <option value="55">cotton bag</option>
                                     <option value="105">train ticket(103.000k-Vangvieng)</option>
                                     <option value="200">train ticket(198.000k-LPB)</option>

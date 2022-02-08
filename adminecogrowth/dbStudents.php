@@ -8,36 +8,25 @@ if(isset($_POST['start'])){
 		
 		$searchData = $_POST['search']['value'];//รับข้อมูล ช่อง Search
 		
-		define('DB_SERVER', 'localhost');
-		define('DB_USERNAME', 'root');
-		define('DB_PASSWORD', '');
-		define('DB_NAME', 'laos-ewaste');
-
-		// Attempt to connect to MySQL database
-		$conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);//ชื่อฐานข้อมูล
-		
-		// Check connection
-		if (!$conn) {
-		  die("Connection failed: " . mysqli_connect_error());
-		}
+		include 'db.php';
 
 		$searchValueResult = "";
 		
-		$searchValueData = mysqli_real_escape_string($conn,$searchData); // Search value
+		$searchValueData = mysqli_real_escape_string($mysql_db,$searchData); // Search value
 		
 		//Query กรณีมีการค้นหาข้อมูล
 		if($searchValueData != ''){
-		   $searchValueResult = " WHERE name LIKE '%".$searchValueData."%'  OR phone LIKE '%".$searchValueData."%' OR schoolname LIKE '%".$searchValueData."%' ";
+		   $searchValueResult = " WHERE name LIKE '%".$searchValueData."%'  OR phone LIKE '%".$searchValueData."%' OR schoolname LIKE '%".$searchValueData."%' OR sid LIKE '%".$searchValueData."%' ";
 		}
 		
 		//Query นับจำนวนข้อมูลทั้งหมด
-		$t = mysqli_query($conn,"SELECT COUNT(*) as total FROM students");
+		$t = mysqli_query($mysql_db,"SELECT COUNT(*) as total FROM students");
 		$records = mysqli_fetch_assoc($t);
 		$totalRecords = $records['total'];
 
 		//Query ข้อมูลที่จะแสดงใน DataTable
 		$sql = "SELECT * FROM students $searchValueResult LIMIT $start , $length";
-		$result = mysqli_query($conn, $sql);
+		$result = mysqli_query($mysql_db, $sql);
 		
 		$data = array();
 
@@ -78,7 +67,7 @@ if(isset($_POST['start'])){
 		  	}
 		}
 
-		mysqli_close($conn);
+		mysqli_close($mysql_db);
 
 		$json_data = array(
 			"draw"            => intval( $_REQUEST['draw'] ),   

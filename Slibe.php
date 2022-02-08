@@ -5,7 +5,7 @@
           <div class="hero-carousel-item">
             <img src="./assets/img/bg_image_1.jpg" alt="">
             <div class="img-caption">
-              <div class="subhead">ພວກເຮົາຍິນດີຕ້ອນຮັບທ່ານເຂົ້າມາໃນີ້</div>
+              <div class="subhead">ພວກເຮົາຍິນດີຕ້ອນຮັບທ່ານ</div>
               <h1 class="mb-4">ສະບາຍດີ!</h1>
               <!-- <a href="#services" class="btn btn-outline-light">Get Started</a> -->
             </div>
@@ -46,7 +46,7 @@
             <div class="img-caption">
               <div class="subhead"><?php echo $row['title']; ?></div>
               <h1 class="mb-4">ກິດຈະກຳຂອງພວເຮົາ</h1>
-              <a href="#services" class="btn btn-success">ອ່ານເພີ່ມຕື່ມ</a>
+              <a href="Conten" class="btn btn-success">ອ່ານເພີ່ມຕື່ມ</a>
             </div>
             <?php } ?>
           </div>

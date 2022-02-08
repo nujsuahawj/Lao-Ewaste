@@ -159,7 +159,8 @@ include('db.php');
                             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                             <?php 
                                 require_once('db.php');
-                                $query = "SELECT * FROM admin";
+                                $whereid = $_SESSION['username'];
+                                $query = "SELECT * FROM admin where username = '$whereid' ";
                                 $result_tasks = mysqli_query($mysql_db, $query); 
                                 while($row = mysqli_fetch_assoc($result_tasks)) { ?>
                                     <img id="adminlogo" width="200" class="rounded-circle mt-5" src="<?= "./img/admin/".$row['file']?>">

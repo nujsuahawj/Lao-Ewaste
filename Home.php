@@ -146,12 +146,13 @@
           <div class="subhead">ວິດີໂອແນະນຳ</div>
           <h3 class="title-section text-success">ວິທີ ແລະ ຂັ້ນຕອນ</h3>
         </div>
-        <iframe src="https://www.youtube.com/embed/0UvTyj2Y-AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <div class="owl-carousel team-carousel mt-5">
+        <!-- <iframe src="https://www.youtube.com/embed/0UvTyj2Y-AQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/z0BMaAXZpQI?start=2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- <div class="owl-carousel team-carousel mt-5">
             <iframe src="https://www.youtube.com/embed/2yG28qPv4G4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/hcGM9_NYOVc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/_WC2MnV7wsI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+        </div> -->
       </div>
     </div>
     <!-- end video -->

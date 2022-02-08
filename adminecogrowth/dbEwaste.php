@@ -8,22 +8,11 @@ if(isset($_POST['start'])){
 		
 		$searchData = $_POST['search']['value'];//รับข้อมูล ช่อง Search
 		
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "laos-ewaste";//ชื่อฐานข้อมูล
-
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		
-		// Check connection
-		if (!$conn) {
-		  die("Connection failed: " . mysqli_connect_error());
-		}
+		include ('db.php');
 
 		$searchValueResult = "";
 		
-		$searchValueData = mysqli_real_escape_string($conn,$searchData); // Search value
+		$searchValueData = mysqli_real_escape_string($mysql_db,$searchData); // Search value
 		
 		//Query กรณีมีการค้นหาข้อมูล
 		if($searchValueData != ''){
@@ -31,13 +20,13 @@ if(isset($_POST['start'])){
 		}
 		
 		//Query นับจำนวนข้อมูลทั้งหมด
-		$t = mysqli_query($conn,"SELECT COUNT(*) as total FROM students");
+		$t = mysqli_query($mysql_db,"SELECT COUNT(*) as total FROM students");
 		$records = mysqli_fetch_assoc($t);
 		$totalRecords = $records['total'];
 
 		//Query ข้อมูลที่จะแสดงใน DataTable
 		$sql = "SELECT * FROM students $searchValueResult LIMIT $start , $length";
-		$result = mysqli_query($conn, $sql);
+		$result = mysqli_query($mysql_db, $sql);
 		$kg = 'kg';
 		
 		$data = array();
@@ -90,7 +79,7 @@ if(isset($_POST['start'])){
 		  }
 		}
 
-		mysqli_close($conn);
+		mysqli_close($mysql_db);
 
 		$json_data = array(
 			"draw"            => intval( $_REQUEST['draw'] ),   

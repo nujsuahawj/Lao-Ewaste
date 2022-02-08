@@ -34,8 +34,9 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <?php 
+                $whereid = $_SESSION['username'];
                 require_once('db.php');
-                $query = "SELECT * FROM admin";
+                $query = "SELECT * FROM admin where username = '$whereid' ";
                 $result_tasks = mysqli_query($mysql_db, $query); 
                 $upload_dir = './img/school/';
                 while($row = mysqli_fetch_assoc($result_tasks)) { ?>

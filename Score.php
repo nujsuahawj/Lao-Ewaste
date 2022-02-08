@@ -67,7 +67,7 @@
                             <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">ກວດເບິ່ງຄະແນນຂອງທ່ານ</h1>
+                                        <h1 class="h4 text-gray-900 mb-4"><span class="fg-success">ກວດເບິ່ງຄະແນນຂອງທ່ານ</span></h1>
                                     </div>
                                       <div class="form-group">
                                         <input type="text" class="form-control form-control-user text-center" autocomplete="off" placeholder="ID 6 ໂຕ..." />

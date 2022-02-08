@@ -89,6 +89,8 @@
   <link rel="stylesheet" href="./assets/vendor/fancybox/css/jquery.fancybox.css">
 
   <link rel="stylesheet" href="./assets/css/theme.css">
+  <!-- notosans -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100;400&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -138,7 +140,7 @@
                                           </div>
                                         <?php unset($_SESSION['message']); } ?>
                                       </p>
-                                      <h1 class="h4 text-gray-900 mb-4">ຟອມລົງທະບຽນ</h1>
+                                      <h1 class="h4 text-gray-900 mb-4"><span class="fg-success">ຟອມລົງທະບຽນ</span></h1>
                                     </div>
                                     <form class="user" method="POST" action="" enctype="multipart/form-data">
                                         <div class="form-group">
