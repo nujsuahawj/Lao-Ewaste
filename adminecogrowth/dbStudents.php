@@ -72,10 +72,10 @@ if(isset($_POST['start'])){
 					'name'=> $row['name'],
 					'phone'=> $row['phone'],
 					'schoolname'=> $row['schoolname'],
-                    'sid'=> $row['sid'],
+                    		'sid'=> $row['sid'],
 					'poit'=> $sspf,
 				);
-		  }
+		  	}
 		}
 
 		mysqli_close($conn);

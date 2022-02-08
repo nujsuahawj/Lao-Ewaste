@@ -196,71 +196,84 @@
                                     <?php 
                                         require_once('db.php');
 
-                                        $resultm = mysqli_query($mysql_db, "SELECT Max(poit) as 'maxpoit' FROM students");
-                                        $row = mysqli_fetch_array($resultm);
-                                        $poitbys = $row['maxpoit'];
-                                        $poitm = $row['maxpoit'];
+                                        $resultm1 = mysqli_query($mysql_db, "SELECT name, schoolname, poit1 + poit2 + poit3 + poit4 + poit5 + poit6 + poit7 + poit8 + poit9 AS sump1 FROM students ORDER BY sump1 DESC LIMIT 1;");
+                                        $row = mysqli_fetch_array($resultm1);
+                                        $snp1 = $row['sump1'];
+                                        $snn1 = $row['name'];
+                                        $snsn1 = $row['schoolname'];
+                                        $snpkg1 = $snp1/1000;
 
-                                        $resultm2 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 1,1;");
+                                        $resultm2 = mysqli_query($mysql_db, "SELECT name, schoolname, poit1 + poit2 + poit3 + poit4 + poit5 + poit6 + poit7 + poit8 + poit9 AS sump2 FROM students ORDER BY sump2 DESC LIMIT 1,1;");
                                         $row = mysqli_fetch_array($resultm2);
-                                        $poitm2 = $row['poit'];
+                                        $snp2 = $row['sump2'];
+                                        $snn2 = $row['name'];
+                                        $snsn2 = $row['schoolname'];
+                                        $snpkg2 = $snp2/1000;
 
-                                        $resultm3 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 2,1;");
+                                        $resultm3 = mysqli_query($mysql_db, "SELECT name, schoolname, poit1 + poit2 + poit3 + poit4 + poit5 + poit6 + poit7 + poit8 + poit9 AS sump3 FROM students ORDER BY sump3 DESC LIMIT 2,1;");
                                         $row = mysqli_fetch_array($resultm3);
-                                        $poitm3 = $row['poit'];
-                                        
-                                        $resultm4 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 3,1;");
+                                        $snp3 = $row['sump3'];
+                                        $snn3 = $row['name'];
+                                        $snsn3 = $row['schoolname'];
+                                        $snpkg3 = $snp3/1000;
+
+                                        $resultm4 = mysqli_query($mysql_db, "SELECT name, schoolname, poit1 + poit2 + poit3 + poit4 + poit5 + poit6 + poit7 + poit8 + poit9 AS sump4 FROM students ORDER BY sump4 DESC LIMIT 3,1;");
                                         $row = mysqli_fetch_array($resultm4);
-                                        $poitm4 = $row['poit'];
+                                        $snp4 = $row['sump4'];
+                                        $snn4 = $row['name'];
+                                        $snsn4 = $row['schoolname'];
+                                        $snpkg4 = $snp4/1000;
 
-                                        $resultm5 = mysqli_query($mysql_db, "SELECT poit FROM students ORDER BY poit DESC LIMIT 4,1;");
+                                        $resultm5 = mysqli_query($mysql_db, "SELECT name, schoolname, poit1 + poit2 + poit3 + poit4 + poit5 + poit6 + poit7 + poit8 + poit9 AS sump5 FROM students ORDER BY sump5 DESC LIMIT 4,1;");
                                         $row = mysqli_fetch_array($resultm5);
-                                        $poitm5 = $row['poit'];
+                                        $snp5 = $row['sump5'];
+                                        $snn5 = $row['name'];
+                                        $snsn5 = $row['schoolname'];
+                                        $snpkg5 = $snp5/1000;
 
+                                        $snppersent = $snp1 + $snp2 + $snp3 + $snp4 + $snp5;
+                                        $snppersent1 = $snp1*100/$snppersent;
+                                        $snppersent2 = $snp2*100/$snppersent;
+                                        $snppersent3 = $snp3*100/$snppersent;
+                                        $snppersent4 = $snp4*100/$snppersent;
+                                        $snppersent5 = $snp5*100/$snppersent;
 
-                                            $query = "SELECT * FROM students order by poit desc limit 5";
-                                            $result_tasks = mysqli_query($mysql_db, $query); 
-                                            while($row = mysqli_fetch_assoc($result_tasks)) { 
-                                                $snames = $row['name'];
-                                                $sschoolname = $row['schoolname'];
-                                                $spoit = $row['poit'];?>
-                                    <?php if($spoit >= $poitm) {?>
-                                    <h4 class="small font-weight-bold"> <?php echo $snames; ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?>
-                                        <span class="float-right">ອັນດັບ 1</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%;"
-                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm, 3, ',', '.') ?> g</div>
-                                    </div>
-                                    <?php } elseif($spoit >= $poitm2){ ?>
-                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
-                                            class="float-right">ອັນດັບ 2</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 80%"
-                                            aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm2, 3, ',', '.') ?> g</div>
-                                    </div>
-                                    
-                                    <?php }elseif($spoit >= $poitm3){?>
-                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?> <span
-                                            class="float-right">ອັນດັບ 3</span></h4>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: 60%"
-                                            aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm3, 3, ',', '.') ?> g</div>
-                                    </div><br>
-                                    <?php } elseif($spoit >= $poitm4){?>
-                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
-                                            class="float-right">ອັນດັບ 4</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%"
-                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm4, 3, ',', '.') ?> g</div>
-                                    </div>
-                                    <?php }else{ ?>
-                                    <h4 class="small font-weight-bold"><?php echo $snames ?> &nbsp;ມາຈາກ <?php echo $sschoolname ?><span
-                                            class="float-right">ອັນດັບ 5</span></h4>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 20%"
-                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">ຈຳນວນທັງໝົດ <?php echo number_format($poitm5, 3, ',', '.') ?> g</div>
-                                    </div>
-                                    <?php }}?>
+                                    ?>
+
+                                        <h4 class="small font-weight-bold"> <?php echo $snn1; ?> &nbsp; <?php echo $snsn1 ?>
+                                            <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg1, 3, ',', '.') ?> Kg</span>
+                                        </h4>
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent1; ?>%;" aria-valuenow="<?php echo $snppersent1; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
+                                        </div>
+
+                                        <h4 class="small font-weight-bold"><?php echo $snn2; ?> &nbsp; <?php echo $snsn2 ?> 
+                                            <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg2, 3, ',', '.') ?> Kg</span>
+                                        </h4>
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent2; ?>%;"  aria-valuenow="<?php echo $snppersent2; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
+                                        </div>
+
+                                        <h4 class="small font-weight-bold"><?php echo $snn3; ?> &nbsp; <?php echo $snsn3 ?>  
+                                            <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg3, 3, ',', '.') ?> Kg</span>
+                                        </h4>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-primary progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent3; ?>%;"  aria-valuenow="<?php echo $snppersent3; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
+                                        </div>
+
+                                        <h4 class="small font-weight-bold"><?php echo $snn4; ?> &nbsp; <?php echo $snsn4 ?>
+                                            <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg4, 3, ',', '.') ?> Kg</span>
+                                        </h4>
+                                         <div class="progress mb-4">
+                                            <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent4; ?>%;"     aria-valuenow="<?php echo $snppersent4; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
+                                        </div>
+
+                                        <h4 class="small font-weight-bold"><?php echo $snn5; ?> &nbsp; <?php echo $snsn5 ?>
+                                            <span class="float-right">ທັງໝົດ <?php echo number_format($snpkg5, 3, ',', '.') ?> Kg</span>
+                                        </h4>
+                                        <div class="progress mb-4">
+                                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: <?php echo $snppersent5; ?>%;"   aria-valuenow="<?php echo $snppersent5; ?>" aria-valuemin="0" aria-valuemax="100"> </div>
+                                        </div> 
                                 </div>
                             </div>
 

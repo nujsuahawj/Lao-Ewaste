@@ -62,9 +62,9 @@ if(isset($_POST['start'])){
 			    $data[] = array(
 					'studentname'=> $row['studentname'],
 					'schoolname'=> $row['schoolname'],
-                    'siction'=> $vnsiction,
-                    'detials'=> $row['detials'],
-                    'updated'=> $row['created_at'],
+					'siction'=> $vnsiction,
+					'detials'=> $row['detials'],
+					'updated'=> $row['created_at'],
 				);
 		  }
 		}
