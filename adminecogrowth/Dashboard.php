@@ -406,7 +406,7 @@
 
                                     <?php 
                                         require_once('db.php');
-                                        $results1 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum11, SUM(poit2) AS value_sum12, SUM(poit3) AS value_sum13, SUM(poit4) AS value_sum14, SUM(poit5) AS value_sum15, SUM(poit6) AS value_sum16, SUM(poit7) AS value_sum17, SUM(poit8) AS value_sum18, SUM(poit9) AS value_sum19 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນີຣະດາ' ");
+                                        $results1 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum11, SUM(poit2) AS value_sum12, SUM(poit3) AS value_sum13, SUM(poit4) AS value_sum14, SUM(poit5) AS value_sum15, SUM(poit6) AS value_sum16, SUM(poit7) AS value_sum17, SUM(poit8) AS value_sum18, SUM(poit9) AS value_sum19 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນີຣະດາ ສີບຸນເຮືອງ' ");
                                         $row = mysqli_fetch_array($results1);
                                         $ss11 = $row['value_sum11'];
                                         $ss12 = $row['value_sum12'];
@@ -434,7 +434,7 @@
                                         $ssk2 = $ss21 + $ss22 + $ss23 + $ss24 + $ss25 + $ss26 + $ss27 + $ss28 +$ss29;
                                         $ssn2 = $row['schoolname'];
 
-                                        $results3 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum31, SUM(poit2) AS value_sum32, SUM(poit3) AS value_sum33, SUM(poit4) AS value_sum34, SUM(poit5) AS value_sum35, SUM(poit6) AS value_sum36, SUM(poit7) AS value_sum37, SUM(poit8) AS value_sum38, SUM(poit9) AS value_sum39 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນານາຊາດຝຣັງ' ");
+                                        $results3 = mysqli_query($mysql_db, "SELECT schoolname, SUM(poit1) AS value_sum31, SUM(poit2) AS value_sum32, SUM(poit3) AS value_sum33, SUM(poit4) AS value_sum34, SUM(poit5) AS value_sum35, SUM(poit6) AS value_sum36, SUM(poit7) AS value_sum37, SUM(poit8) AS value_sum38, SUM(poit9) AS value_sum39 FROM students WHERE schoolname = 'ໂຮງຮຽນ ນີຣະດາ ຈອມມະນີ' ");
                                         $row = mysqli_fetch_array($results3);
                                         $ss31 = $row['value_sum31'];
                                         $ss32 = $row['value_sum32'];

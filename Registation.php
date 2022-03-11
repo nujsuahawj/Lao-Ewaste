@@ -168,9 +168,9 @@
                                             <div class="col-lg-2">
                                               <select class="form-control form-control-user" name="sc">
                                                 <option value="">ເລືອກ...</option>
-                                                <option value="NRD">NRD</option>
-                                                <option value="NRD">VRV</option>
-                                                <option value="NRD">LFIV</option>
+                                                <option value="SBH">SBH</option>
+                                                <option value="VRV">VRV</option>
+                                                <option value="CMN">CMN</option>
                                               </select>
                                             </div>
                                             <div class="col-lg-10">

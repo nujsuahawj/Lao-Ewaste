@@ -7,9 +7,9 @@ RewriteRule ^Registation?$ Registation.php
 RewriteRule ^Score?$ Score.php
 
 # make seo
-RewriteBase /
-RewriteCond % ^ecogrowthlao.com [NC]
-RewriteRule ^(.*)$ https://www.ecogrowthlao.com/$1 [L,R=301]
+# RewriteBase /
+# RewriteCond % ^ecogrowthlao.com [NC]
+# RewriteRule ^(.*)$ https://www.ecogrowthlao.com/$1 [L,R=301]
 
 
 #NOFOT WHEN IS .php

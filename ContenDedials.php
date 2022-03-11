@@ -82,7 +82,7 @@
             <div class="widget">
   
               <div class="widget-box">
-                <h3 class="widget-title">ຂ່າວສານຫຼ້າສຸດ</h3>
+                <h3 class="widget-title">ຂ່າວສານລ່າສຸດ</h3>
                 <div class="blog-item">
                   <div class="content">
                     <?php 

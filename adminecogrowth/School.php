@@ -255,7 +255,7 @@
                                                     <td>
                                                         <a class="btn btn-success btn-sm editbtn"><i class="fas fa-edit"></i></a>
                                                         &nbsp;
-                                                        <a class="btn btn-success btn-sm deletebtn" ><i class="fas fa-trash-restore"></i></a>
+                                                        <!--<a class="btn btn-success btn-sm deletebtn" ><i class="fas fa-trash-restore"></i></a>-->
                                                     </td>
                                                 </tr>
                                             <?php } ?>

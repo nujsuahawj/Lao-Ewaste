@@ -7,7 +7,7 @@
         <div class="col-lg-4 py-4">
           <h5>ຂໍ້ມູນຕິດຕໍ່</h5>
           <p>Vientiane Capital, Laos PDR.</p>
-          <p>Email: infor@ecogrowthlao.com</p>
+          <p>Email: ecogrowthlaos@gmail.com</p>
           <p>Phone: +856 56 632 446</p>
         </div>
         <!-- <div class="col-lg-4 py-4">
@@ -24,10 +24,10 @@
         </div>
         <div class="col-md-6 text-right">
           <div class="sosmed-button">
-            <a href="https://www.facebook.com/nousua.sainther"><span class="mai-logo-facebook-f fg-success"></span></a>
-            <a href="https://wa.me/91826096"><span class="mai-logo-twitter fg-success"></span></a>
-            <a href="https://www.facebook.com/nousua.sainther"><span class="mai-logo-youtube fg-success"></span></a>
-            <a href="https://wa.me/91826096"><span class="mai-logo-linkedin fg-success"></span></a>
+            <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-facebook-f fg-success"></span></a>
+            <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-twitter fg-success"></span></a>
+            <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-youtube fg-success"></span></a>
+            <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-linkedin fg-success"></span></a>
           </div>
         </div>
     </div>

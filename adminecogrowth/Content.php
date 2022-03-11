@@ -215,7 +215,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h3 class="h3 mb-0 text-gray-800">ບົດຄວນ</h3>
+                            <h3 class="h3 mb-0 text-gray-800">ບົດຄວມ</h3>
                             <?php if (isset($_SESSION['message'])) { ?>
                                     <div class="alert alert-<?= $_SESSION['message_type']?> alert-dismissible fade show" role="alert">
                                         <?= $_SESSION['message']?>
@@ -225,7 +225,7 @@
                                     </div>
                             <?php unset($_SESSION['message']); } ?>
                     </div>
-                    <p class="mb-4">ເພີ່ມ ແລະ ແກ້ໄຂບົດຄວນຕ່າງໆ</p>
+                    <p class="mb-4">ເພີ່ມ ແລະ ແກ້ໄຂບົດຄວມຕ່າງໆ</p>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">

@@ -4,7 +4,7 @@
         <div class="row align-items-center">
           <div class="col-md-8">
             <div class="d-inline-block">
-              <span class="mai-mail fg-success"></span> <a href="mailto:infor@ecogrowthlao.com">infor@ecogrowthlao.com</a>
+              <span class="mai-mail fg-success"></span> <a href="mailto:ecogrowthlaos@gmail.com">ecogrowthlaos@gmail.com</a>
             </div>
             <div class="d-inline-block ml-2">
               <span class="mai-call fg-success"></span> <a href="tel:+0011223495">+8562056632446</a>
@@ -12,10 +12,10 @@
           </div>
           <div class="col-md-4 text-right d-none d-md-block">
             <div class="social-mini-button">
-              <a href="#"><span class="mai-logo-facebook-f fg-success"></span></a>
-              <a href="#"><span class="mai-logo-twitter fg-success"></span></a>
-              <a href="#"><span class="mai-logo-youtube fg-success"></span></a>
-              <a href="#"><span class="mai-logo-linkedin fg-success"></span></a>
+              <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-facebook-f fg-success"></span></a>
+              <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-twitter fg-success"></span></a>
+              <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-youtube fg-success"></span></a>
+              <a href="https://www.facebook.com/Eco-Growth-Laos-105146555327367/"><span class="mai-logo-linkedin fg-success"></span></a>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="navbar-collapse collapse" id="navbarContent">
           <ul class="navbar-nav ml-auto pt-3 pt-lg-0">
             <li class="nav-item active">
-              <a href="Home" class="nav-link text-success">ໜ້າລັກ</a>
+              <a href="Home" class="nav-link text-success">ໜ້າຫຼັກ</a>
             </li>
             <li class="nav-item">
               <a href="About" class="nav-link">ກ່ຽວກັບ</a>

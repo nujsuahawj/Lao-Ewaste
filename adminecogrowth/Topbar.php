@@ -23,7 +23,7 @@
             $result_tasks = mysqli_query($mysql_db, $query); 
             $row = mysqli_fetch_assoc($result_tasks);
             $count = $row["count(*)"]; ?>
-                <a class="nav-link dropdown-toggle" href="Active.php">
+                <a class="nav-link dropdown-toggle" href="Active">
                     <i class="fas fa-bell fa-fw"></i>
                     <!-- Counter - Alerts -->
                     <span class="badge badge-danger badge-counter"><?php echo $count; ?></span>
